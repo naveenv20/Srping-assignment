@@ -1,4 +1,4 @@
-package HibernateUtil;
+package com.learnspring.assign.assin1.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
