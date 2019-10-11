@@ -13,7 +13,7 @@ public class UserController {
 	@GetMapping("/")
     public String userForm(Locale locale, Model model) {
        
-        return "index";
+        return "displaytestusers";
     }
 	
 	

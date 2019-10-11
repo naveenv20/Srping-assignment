@@ -15,7 +15,8 @@
 		<hibernate.version>5.4.5.Final</hibernate.version>
 		<mysql.connector.version>8.0.17</mysql.connector.version>
 		<c3po.version>0.9.5.3</c3po.version>
-
+ 		<jstl.version>1.2.1</jstl.version>
+ 		 <tld.version>1.1.2</tld.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -54,6 +55,13 @@
 			<version>${hibernate.version}</version>
 		</dependency>
 
+<!-- Hibernate-C3P0 Integration -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
 		<!-- MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -83,6 +91,18 @@
 
 		
 
+        <!-- JSTL Dependency -->
+	<dependency>
+		<groupId>javax.servlet.jsp.jstl</groupId>
+		<artifactId>jstl-api</artifactId>
+		<version>1.2</version>
+	</dependency>
+         
+        <dependency>
+            <groupId>taglibs</groupId>
+            <artifactId>standard</artifactId>
+            <version>${tld.version}</version>
+        </dependency>
 
 		<!-- to compensate for java 9 not including jaxb -->
 		
