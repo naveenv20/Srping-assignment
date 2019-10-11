@@ -95,5 +95,6 @@
 	<classpathentry kind="lib" path="lib/spring-websocket-5.1.9.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/stax-ex-1.8.jar"/>
 	<classpathentry kind="lib" path="lib/txw2-2.3.1.jar"/>
+	<classpathentry kind="lib" path="/solution-code-spring-dependency-injection/lib/spring-context-5.1.9.RELEASE.jar"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
