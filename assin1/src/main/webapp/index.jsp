@@ -6,7 +6,7 @@
 <hr>
 
 
-<a href="${pageContext.request.contextPath}/">SaiRam</a>
+<a href="${pageContext.request.contextPath}/list">SaiRam</a>
 
 Hello
 

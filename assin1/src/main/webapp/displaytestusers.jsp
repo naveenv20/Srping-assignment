@@ -18,12 +18,12 @@ List Customers
 				
 		</tr>
 		<!--  loop over and print the customers -->
-		<c:forEach var="tempCustomer" items="${customers}">
+		<c:forEach var="tempUser" items="${userlist}">
 		<!-- Create a update link with customer id -->
 		
 			<tr> 
-				<td>${tempCustomer.userid}</td>
-				<td>${tempCustomer.email}</td>
+				<td>${tempUser.userid}</td>
+				<td>${tempUser.email}</td>
 				
 			</tr>
 		
