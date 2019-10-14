@@ -22,7 +22,7 @@ List Customers
 		<!-- Create a update link with customer id -->
 		
 			<tr> 
-				<td>${tempUser.userid}</td>
+				<td>${tempUser.username}</td>
 				<td>${tempUser.email}</td>
 				
 			</tr>
@@ -30,6 +30,5 @@ List Customers
 		</c:forEach>
 		
 		</table>
-
 
 </body>

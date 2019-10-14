@@ -8,7 +8,8 @@ public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationC
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] { DemoAppConfig.class, ApplicationContextConfig.class };
+		return new Class[]{ApplicationContextConfig.class,HibernateUtil.class} ;
+				//{ApplicationContextConfig.class };
 	}
 
 	@Override
@@ -20,7 +21,8 @@ public class MySpringMvcDispatcherServletInitializer extends AbstractAnnotationC
 	
 	@Override
 	   protected Class<?>[] getRootConfigClasses() {
-	      return new Class[] { HibernateUtil.class };
+	      return new Class[]{} ;
+	    		 // { HibernateUtil.class};
 	   }
 	 
 	  

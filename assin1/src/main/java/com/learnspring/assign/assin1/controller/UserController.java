@@ -7,24 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.learnspring.assign.assin1.dao.TesttbDAO;
 import com.learnspring.assign.assin1.entity.testtb;
+import com.learnspring.assign.assin1.service.Testtbservice;
 
 
 @Controller
+@RequestMapping("/user")
 public class UserController {
 
 	
 	@Autowired
-	private TesttbDAO testtbDAO;
+	private Testtbservice testtbservice;
 	
 	
-	@GetMapping("/")
-    public String userForm(Locale locale, Model model) {
-       
-        return "index";
-    }
+	
 	
 	@GetMapping("/list")
 	 public String listCustomer(Model themodel){
@@ -33,7 +32,7 @@ public class UserController {
 	    	//List<Customer> theCustomers=customerDAO.getCustomers();
 	    	
 	    	//using the service layer
-	    	List<testtb> theUsers=testtbDAO.getTestdata();
+	    	List<testtb> theUsers=testtbservice.getTestdata();
 	    	// add the customer to the model
 	    	themodel.addAttribute("userlist",theUsers);
 	    	

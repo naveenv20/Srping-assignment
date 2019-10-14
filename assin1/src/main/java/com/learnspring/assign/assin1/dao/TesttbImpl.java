@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,15 +20,16 @@ public class TesttbImpl implements TesttbDAO {
 	   private SessionFactory sessionFactory;
 
 	@Override
-	@Transactional
+	
 	public List<testtb> getTestdata() {
 	
 		//get current hiberate session
 				Session currentSession=sessionFactory.getCurrentSession();
-				
+			
+				currentSession.beginTransaction();
 				//cretae a query nd sort by lastname
 				Query<testtb> theQuery=
-						currentSession.createQuery("from testtb order by lastname",testtb.class);
+						currentSession.createQuery("from testtb",testtb.class);
 				
 				//execute query and get result
 				List<testtb> results=theQuery.getResultList();
@@ -35,6 +37,9 @@ public class TesttbImpl implements TesttbDAO {
 				//return the result
 				//System.out.println("abc");
 				
+				currentSession.getTransaction().commit();
+				
+				currentSession.close();
 				
 		return results;
 	}
