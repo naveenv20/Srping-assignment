@@ -18,12 +18,17 @@ public class HibernateUtil {
 
 	@Autowired
     private ApplicationContext context;
+	
  
     @Bean
     public LocalSessionFactoryBean getSessionFactory() {
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
         factoryBean.setConfigLocation(context.getResource("classpath:hibernate.cfg.xml"));
         factoryBean.setAnnotatedClasses(testtb.class);
+        System.out.println("======================>>>>>>>>: "+context.getApplicationName());
+        System.out.println("======================>>>>>>>>: "+context.getDisplayName());
+        System.out.println("======================>>>>>>>>: "+context.toString());
+        
         return factoryBean;
     }
  

@@ -11,7 +11,7 @@ List Customers
 
 <body>
 
-<table>
+<table border=1>
 			<tr>
 				<th>Userid</th>
 				<th>Email</th>

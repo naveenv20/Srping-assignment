@@ -3,11 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.learnspring.assign</groupId>
-  <artifactId>assin1</artifactId>
+  <artifactId>assin2</artifactId>
   <version>1.0.0</version>
 	<packaging>war</packaging>
 
-  <name>assin1</name>
+  <name>assin2</name>
   <url>http://maven.apache.org</url>
 
   <properties>
