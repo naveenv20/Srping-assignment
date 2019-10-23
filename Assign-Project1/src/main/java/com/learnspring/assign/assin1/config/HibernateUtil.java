@@ -13,29 +13,22 @@ import com.learnspring.assign.assin1.entity.testtb;
 
 
 @Configuration
-@ComponentScan(basePackages = {"com.learnspring.assign.assin1"})
 public class HibernateUtil {
 
 	@Autowired
     private ApplicationContext context;
 	
-	// read spring config java class
-//			AnnotationConfigApplicationContext context = 
-//					new AnnotationConfigApplicationContext(ApplicationContextConfig.class);
-// 
+
     @Bean
     public LocalSessionFactoryBean getSessionFactory() {
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
         factoryBean.setConfigLocation(context.getResource("classpath:hibernate.cfg.xml"));
         factoryBean.setAnnotatedClasses(testtb.class);
-        System.out.println("======================>>>>>>>>: "+context.getApplicationName());
-        System.out.println("======================>>>>>>>>: "+context.getDisplayName());
-        System.out.println("======================>>>>>>>>: "+context.toString());
+   
         return factoryBean;
     }
  
     @Bean
-    @Autowired
     public HibernateTransactionManager getTransactionManager() {
         HibernateTransactionManager transactionManager = new HibernateTransactionManager();
         transactionManager.setSessionFactory(getSessionFactory().getObject());

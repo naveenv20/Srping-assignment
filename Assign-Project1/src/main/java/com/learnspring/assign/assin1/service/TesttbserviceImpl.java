@@ -9,14 +9,15 @@ import org.springframework.transaction.annotation.Transactional;
 import com.learnspring.assign.assin1.dao.TesttbDAO;
 import com.learnspring.assign.assin1.entity.testtb;
 
-
-
 @Service
 public class TesttbserviceImpl implements Testtbservice {
 
-	@Autowired
 	
 	private TesttbDAO testtbDAO;
+	
+	public TesttbserviceImpl (TesttbDAO thetesttbDAO) {
+		testtbDAO=thetesttbDAO;
+	}
 	
 	@Override
 	

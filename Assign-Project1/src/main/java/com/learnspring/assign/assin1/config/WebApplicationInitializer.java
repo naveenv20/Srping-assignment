@@ -9,19 +9,21 @@ public class WebApplicationInitializer extends AbstractAnnotationConfigDispatche
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		return new Class[]{HibernateUtil.class} ;
+		
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[]{ApplicationContextConfig.class,HibernateUtil.class} ;
+		return new Class[]{ApplicationContextConfig.class} ;
 		
 	}
 
 	@Override
 	protected String[] getServletMappings() {
 		// TODO Auto-generated method stub
-		return null;
+		return new String[] { "/" };
 	}
 
 }

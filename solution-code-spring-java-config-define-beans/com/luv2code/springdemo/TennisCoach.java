@@ -1,7 +1,5 @@
 package com.luv2code.springdemo;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -26,10 +24,7 @@ public class TennisCoach implements Coach {
 	}
 	
 	// define my destroy method
-	@PreDestroy
-	public void doMyCleanupStuff() {
-		System.out.println(">> TennisCoach: inside of doMyCleanupStuff()");		
-	}
+	
 	
 	// define a setter method
 	/*

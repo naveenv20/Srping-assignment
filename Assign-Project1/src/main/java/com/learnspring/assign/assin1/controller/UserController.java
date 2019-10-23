@@ -19,10 +19,12 @@ import com.learnspring.assign.assin1.service.Testtbservice;
 public class UserController {
 
 	
-	@Autowired
 	private Testtbservice testtbservice;
 	
 	
+	public UserController (Testtbservice thetesttbservice) {
+		testtbservice=thetesttbservice;
+	}
 	
 	
 	@GetMapping("/list")

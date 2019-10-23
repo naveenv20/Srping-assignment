@@ -16,9 +16,16 @@ import com.learnspring.assign.assin1.entity.testtb;
 public class TesttbImpl implements TesttbDAO {
 	
 	
-	 @Autowired
+	
 	   private SessionFactory sessionFactory;
 
+	 public TesttbImpl (SessionFactory thesessionFactory) {
+		 sessionFactory=thesessionFactory;
+		 System.out.println("Hello");
+	 }
+	 
+	 
+	 
 	@Override
 	
 	public List<testtb> getTestdata() {
