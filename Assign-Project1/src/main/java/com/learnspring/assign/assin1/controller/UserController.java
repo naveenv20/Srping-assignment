@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.learnspring.assign.assin1.dao.TesttbDAO;
+import com.learnspring.assign.assin1.entity.circle;
 import com.learnspring.assign.assin1.entity.testtb;
 import com.learnspring.assign.assin1.service.Testtbservice;
 
@@ -42,5 +43,25 @@ public class UserController {
 	    	
 			return "displaytestusers";
 	}
+	
+	
+	@GetMapping("/circlelist")
+	 public String listCircledata(Model themodel){
+	    	
+	    	//get customer from the dao
+	    	//List<Customer> theCustomers=customerDAO.getCustomers();
+	    	
+	    	//using the service layer
+	    	List<circle> thecircles=testtbservice.getCircledata();
+	    	// add the customer to the model
+	    	themodel.addAttribute("circlelist",thecircles);
+	    	
+	    	
+	    	
+			return "displaytestusers";
+	}
+	
+	
+	
 	
 }

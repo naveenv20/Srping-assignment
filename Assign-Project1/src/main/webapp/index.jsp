@@ -8,6 +8,8 @@
 
 <a href="${pageContext.request.contextPath}/user/list">SaiRam</a>
 
+<a href="${pageContext.request.contextPath}/user/circlelist">circle</a>
+
 Hello
 
 

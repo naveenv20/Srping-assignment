@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.learnspring.assign.assin1.dao.TesttbDAO;
+import com.learnspring.assign.assin1.entity.circle;
 import com.learnspring.assign.assin1.entity.testtb;
 
 @Service
@@ -24,6 +25,12 @@ public class TesttbserviceImpl implements Testtbservice {
 	public List<testtb> getTestdata() {
 		// TODO Auto-generated method stub
 		return testtbDAO.getTestdata();
+	}
+
+	@Override
+	public List<circle> getCircledata() {
+		// TODO Auto-generated method stub
+		return testtbDAO.getCircledata();
 	}
 
 }
