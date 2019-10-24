@@ -1,11 +1,15 @@
 package com.learnspring.assign.assin1.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name="user_info")
@@ -28,6 +32,45 @@ public class user_info {
 	
 	@Column(name="userid")
 	private String userid;
+
+	@OneToOne(mappedBy="user_Info", 
+			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+						CascadeType.REFRESH})
+	private message_info message_Info;
+	
+	
+	public message_info getMessage_Info() {
+		return message_Info;
+	}
+
+	public void setMessage_Info(message_info message_Info) {
+		this.message_Info = message_Info;
+	}
+
+	@OneToOne(mappedBy="circle_user_Info", 
+			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+						CascadeType.REFRESH})
+	private circle cirCle;
+	
+	
+	
+	
+	
+	public circle getCirCle() {
+		return cirCle;
+	}
+
+	public void setCirCle(circle cirCle) {
+		this.cirCle = cirCle;
+	}
+
+	public message_info getMessage_info() {
+		return message_Info;
+	}
+
+	public void setMessage_info(message_info message_info) {
+		this.message_Info = message_info;
+	}
 
 	public int getId() {
 		return id;
@@ -85,8 +128,10 @@ public class user_info {
 	@Override
 	public String toString() {
 		return "user_info [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", password=" + password
-				+ ", userid=" + userid + "]";
+				+ ", userid=" + userid + ", message_Info=" + message_Info + ", cirCle=" + cirCle + "]";
 	}
+
+	
 	
 	
 	
