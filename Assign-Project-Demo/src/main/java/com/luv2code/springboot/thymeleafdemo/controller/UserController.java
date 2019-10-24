@@ -1,7 +1,9 @@
-package com.learnspring.assign.assin1.controller;
+package com.luv2code.springboot.thymeleafdemo.controller;
 
 import java.util.List;
 import java.util.Locale;
+
+import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,10 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.learnspring.assign.assin1.dao.TesttbDAO;
-import com.learnspring.assign.assin1.entity.circle;
-import com.learnspring.assign.assin1.entity.testtb;
-import com.learnspring.assign.assin1.service.Testtbservice;
+import com.luv2code.springboot.thymeleafdemo.entity.circle;
+import com.luv2code.springboot.thymeleafdemo.entity.user_info;
+import com.luv2code.springboot.thymeleafdemo.service.Testtbservice;
+
 
 
 @Controller
@@ -28,21 +30,11 @@ public class UserController {
 	}
 	
 	
-	@GetMapping("/list")
-	 public String listCustomer(Model themodel){
-	    	
-	    	//get customer from the dao
-	    	//List<Customer> theCustomers=customerDAO.getCustomers();
-	    	
-	    	//using the service layer
-	    	List<testtb> theUsers=testtbservice.getTestdata();
-	    	// add the customer to the model
-	    	themodel.addAttribute("userlist",theUsers);
-	    	
-	    	
-	    	
-			return "displaytestusers";
-	}
+	
+	
+	
+
+	
 	
 	
 	@GetMapping("/circlelist")
@@ -58,9 +50,25 @@ public class UserController {
 	    	
 	    	
 	    	
-			return "circledata";
+			return "user/list-circle";
 	}
 	
+	
+	@GetMapping("/userlist")
+	 public String listUserdata(Model themodel){
+	    	
+	    	//get customer from the dao
+	    	//List<Customer> theCustomers=customerDAO.getCustomers();
+	    	
+	    	//using the service layer
+	    	List<user_info> thecircles=testtbservice.getUserdata();
+	    	// add the customer to the model
+	    	themodel.addAttribute("userlist",thecircles);
+	    	
+	    	
+	    	
+			return "user/list-users";
+	}
 	
 	
 	

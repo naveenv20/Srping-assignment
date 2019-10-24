@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- BOOTSTARP for PAGE LOOK AND FEEL CSS KIND -->
+<!-- getbootstrap.com -->
+
+<head>
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+
+<title>Thymelead Table Demo</title>
+
+</head>
+
+
+<body>
+	<div class="container">
+		<h3>Employee Directory</h3>
+		<hr>
+		
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Id</th>
+					<th>firstname</th>
+					<th>lastname</th>
+					<th>userid</th>
+					
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="tempemployee : ${userlist}">
+					
+					<td th:text="${tempemployee.id}"></td>
+					<td th:text="${tempemployee.firstname}"></td>
+					<td th:text="${tempemployee.lastname}"></td>
+						<td th:text="${tempemployee.userid}"></td>
+				</tr>
+
+
+			</tbody>
+
+		</table>
+
+
+
+	</div>
+</body>
+
+</html>

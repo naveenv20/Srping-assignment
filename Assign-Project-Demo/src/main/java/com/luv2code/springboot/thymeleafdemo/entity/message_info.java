@@ -1,4 +1,4 @@
-package com.learnspring.assign.assin1.entity;
+package com.luv2code.springboot.thymeleafdemo.entity;
 
 import java.util.Date;
 

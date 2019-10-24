@@ -10,7 +10,10 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.learnspring.assign.assin1.entity.circle;
+import com.learnspring.assign.assin1.entity.message_info;
 import com.learnspring.assign.assin1.entity.testtb;
+import com.learnspring.assign.assin1.entity.user_circle;
+import com.learnspring.assign.assin1.entity.user_info;
 
 
 @Configuration
@@ -24,7 +27,7 @@ public class HibernateUtil {
     public LocalSessionFactoryBean getSessionFactory() {
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
         factoryBean.setConfigLocation(context.getResource("classpath:hibernate.cfg.xml"));
-        factoryBean.setAnnotatedClasses(testtb.class,circle.class);
+        factoryBean.setAnnotatedClasses(user_info.class,circle.class,message_info.class,user_circle.class);
        
         
    

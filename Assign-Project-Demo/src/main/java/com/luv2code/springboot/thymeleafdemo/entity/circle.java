@@ -1,4 +1,4 @@
-package com.learnspring.assign.assin1.entity;
+package com.luv2code.springboot.thymeleafdemo.entity;
 
 import java.util.Date;
 
@@ -37,11 +37,11 @@ public class circle {
 	private user_info circle_user_Info;
 	
 	
-	public circle(Date doj, String circle_name, user_info circle_user_Info) {
+	public circle(Date doj, String circle_name) {
 		super();
 		this.doj = doj;
 		this.circle_name = circle_name;
-		this.circle_user_Info = circle_user_Info;
+		
 	}
 
 	public circle() {

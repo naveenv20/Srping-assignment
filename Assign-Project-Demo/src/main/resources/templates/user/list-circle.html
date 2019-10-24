@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- BOOTSTARP for PAGE LOOK AND FEEL CSS KIND -->
+<!-- getbootstrap.com -->
+
+<head>
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+
+<title>Thymelead Table Demo</title>
+
+</head>
+
+
+<body>
+	<div class="container">
+		<h3>Employee Directory</h3>
+		<hr>
+		
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					
+					<th>Date</th>
+					<th>circle_name</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="tempemployee : ${circlelist}">
+					
+					<td th:text="${tempemployee.doj}"></td>
+					<td th:text="${tempemployee.circle_name}"></td>
+				</tr>
+
+
+			</tbody>
+
+		</table>
+
+
+
+	</div>
+</body>
+
+</html>
