@@ -32,20 +32,22 @@
 			<thead class="thead-dark">
 				<tr>
 					
-					<th>Date</th>
-					<th>circle_name</th>
-					<th>createdby</th>
-					<th>Name</th>
+					<th>Received Date</th>
+					<th>Message</th>
+					<th>isCircle</th>
+					<th>Sender</th>
+					
 					
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="tempemployee : ${circlelist}">
+				<tr th:each="tempemployee : ${messagelist}">
 					
 					<td th:text="${tempemployee.doj}"></td>
-					<td th:text="${tempemployee.circle_name}"></td>
-					<td th:text="${tempemployee.circle_user_Info.userid}"></td>
-					<td th:text="${tempemployee.circle_user_Info.firstname}"></td>
+					<td th:text="${tempemployee.message}"></td>
+					<td th:text="${tempemployee.iscircle}"></td>
+					<td th:text="${tempemployee.user_Info.userid}"></td>
+					<!-- td th:text="${tempemployee.user_Info.id}"></td-->
 				</tr>
 
 

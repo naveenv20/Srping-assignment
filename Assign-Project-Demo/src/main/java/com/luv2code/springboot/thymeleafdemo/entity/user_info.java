@@ -48,10 +48,35 @@ public class user_info {
 	private List<circle> cirCles;
 	
 	
+	@OneToMany(mappedBy="sender_Info", 
+			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+						CascadeType.REFRESH})
+	private List<user_inbox> userinboxsender;
+	
+	@OneToMany(mappedBy="receiver_Info", 
+			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+						CascadeType.REFRESH})
+	private List<user_inbox> userinboxreceiver;
 	
 	
 	
 	
+	public List<user_inbox> getUserinboxsender() {
+		return userinboxsender;
+	}
+
+	public void setUserinboxsender(List<user_inbox> userinboxsender) {
+		this.userinboxsender = userinboxsender;
+	}
+
+	public List<user_inbox> getUserinboxreceiver() {
+		return userinboxreceiver;
+	}
+
+	public void setUserinboxreceiver(List<user_inbox> userinboxreceiver) {
+		this.userinboxreceiver = userinboxreceiver;
+	}
+
 	public List<message_info> getMessage_Info() {
 		return message_Info;
 	}

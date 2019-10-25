@@ -115,7 +115,34 @@ CREATE TABLE `user_inbox` (
   
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
+/*
+ * DROP TABLE IF EXISTS `user_inbox`;
+CREATE TABLE `user_inbox` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message` varchar(256) DEFAULT NULL,
+  `received_date_time` DATE ,
+  `sender_id` int(11) NOT NULL,
+  `receiver_id` int(11) NOT NULL,
+  `iscircle`	boolean NOT NULL,
 
+  
+  PRIMARY KEY (`id`),
+
+KEY `sender_key` (`sender_id`),
+  CONSTRAINT `fk_sender_Q` FOREIGN KEY (`sender_id`) 
+  REFERENCES `user_info` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  
+  KEY `receiver_key` (`receiver_id`),
+  CONSTRAINT `fk_receiver_Q` FOREIGN KEY (`receiver_id`) 
+  REFERENCES `user_info` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  
+  
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+  
+ * 
+ * 
+ * 
+ */
 
 
 /*
