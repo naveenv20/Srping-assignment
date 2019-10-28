@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,7 +37,7 @@ public class user_info {
 	@Column(name="userid")
 	private String userid;
 
-	@OneToMany(mappedBy="user_Info", 
+	@OneToMany(fetch = FetchType.LAZY,mappedBy="user_Info", 
 			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 						CascadeType.REFRESH})
 	private List<message_info> message_Info;
@@ -151,13 +152,13 @@ public class user_info {
 	@Override
 	public String toString() {
 		return "user_info [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", password=" + password
-				+ ", userid=" + userid + ", message_Info=" + message_Info + ", cirCles=" + cirCles + "]";
+				+ ", userid=" + userid + "]";
 	}
 
 	
 
 	
-	
+	//https://thoughts-on-java.org/entity-mappings-introduction-jpa-fetchtypes/
 	
 	
 	

@@ -24,4 +24,10 @@ public interface TesttbDAO {
 
 	public List<user_inbox> getinboxdata();
 
+	public user_info getuser(int theId);
+
+	public void deleteUser(int theId);
+
+	public void saveUser(user_info theUser);
+
 }

@@ -2,6 +2,8 @@ package com.luv2code.springdemo.rest;
 
 import java.util.List;
 
+import javax.management.RuntimeErrorException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,37 +13,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.luv2code.springdemo.entity.Customer;
-import com.luv2code.springdemo.service.CustomerService;
+
+import com.luv2code.springdemo.entity.user_info;
+import com.luv2code.springdemo.service.Testtbservice;
+
+
 
 @RestController
 @RequestMapping("/api")
-public class CustomerRestController {
+public class UserRestController {
 	
 	//autowire customer service
 	@Autowired
-	private CustomerService customerService;
+	private Testtbservice testtbService;
 	
 	//add mappinh for GET /customers
 	
-	@RequestMapping("/customers")
-	public List<Customer> getcustomers(){
+	@RequestMapping("/users")
+	public List<user_info> getcustomers(){
 			
-		return customerService.getCustomers();
+		return testtbService.getUserdata();
 		
 	}
 	
 	//add mapping get customer --with customer id
-	@RequestMapping("/customers/{customerId}")
-	public Customer getcustomer(@PathVariable int customerId ){
+	@RequestMapping("/users/{userId}")
+	public user_info getcustomer(@PathVariable int userId ){
 			
-		Customer thecustomer=customerService.getCustomer(customerId);
+		user_info theuser=testtbService.getuser(userId);
 		
-		if(thecustomer==null){
-			throw new CustomerNotFoundException("Customer not found - "+customerId);
-		}
 		
-		return thecustomer;
+		
+		return theuser;
 		
 	}
 	
@@ -49,56 +52,53 @@ public class CustomerRestController {
 	
 	//add mapping for POST /customers     adding a new customer
 	
-	@PostMapping("/customers")
-	public Customer addCustomer(@RequestBody Customer theCustomer){
+	@PostMapping("/users")
+	public user_info addUser(@RequestBody user_info theUser){
 		
 		
 		//also just in the case the pass the id in JSON ...set id to 0
 		//this is force a save of new item .. instead of doing update 
-		customerService.saveCustomer(theCustomer);
+		testtbService.saveUser(theUser);
 		
 		
-		return theCustomer;
+		return theUser;
 		
 	}
 	
 	
 	// add mapping for PUT /customers for updating the customers
 	
-	@PutMapping("/customers")
-	public Customer updateCustomer(@RequestBody Customer theCustomer){
+	@PutMapping("/users")
+	public user_info updateCustomer(@RequestBody user_info theUser){
 		
 		
 		//also just in the case the pass the id in JSON ...set id to the value u want delete
 		//
-		customerService.saveCustomer(theCustomer);
+		testtbService.saveUser(theUser);
 		
 		
-		return theCustomer;
+		return theUser;
 		
 	}
 	
 	
 	// add mapping for DELETE /customers for deleting the customer
 	
-	@DeleteMapping("/customers/{customerId}")
-	public String deleteCustomer(@PathVariable int customerId) {
+	@DeleteMapping("/users/{userId}")
+	public String deleteuser(@PathVariable int userId) {
 
-		Customer thecustomer = customerService.getCustomer(customerId);
+		user_info theuser = testtbService.getuser(userId);
 		
-		// checking if the customer exists
-		if(thecustomer==null){
-			throw new CustomerNotFoundException("Customer not found - "+customerId);
-		}
+		
 		
 		
 		
 		//also just in the case the pass the id in JSON ...set id to the value u want delete
 	
-		customerService.deleteCustomer(customerId);
+		testtbService.deleteUser(userId);
 		
 		
-		return "Delete Customer id :  "+customerId;
+		return "Delete Customer id :  "+userId;
 		
 	}
 	

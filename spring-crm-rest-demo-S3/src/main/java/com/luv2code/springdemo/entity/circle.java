@@ -82,8 +82,7 @@ public class circle {
 
 	@Override
 	public String toString() {
-		return "circle [id=" + id + ", doj=" + doj + ", circle_name=" + circle_name + ", circle_user_Info="
-				+ circle_user_Info + "]";
+		return "circle [id=" + id + ", doj=" + doj + ", circle_name=" + circle_name + "]";
 	}
 	
 	

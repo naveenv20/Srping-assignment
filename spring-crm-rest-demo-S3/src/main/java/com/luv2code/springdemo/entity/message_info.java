@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,7 +39,7 @@ public class message_info {
 	private Date doj;
 	
 	
-	@ManyToOne(cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+	@ManyToOne(fetch = FetchType.EAGER,cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH})
 	@JoinColumn(name="sender_id")
 	private user_info user_Info;
@@ -139,7 +140,7 @@ public class message_info {
 	@Override
 	public String toString() {
 		return "message_info [id=" + id + ", message=" + message + ", receiver_id=" + receiver_id + ", iscircle="
-				+ iscircle + ", doj=" + doj + ", user_Info=" + user_Info + "]";
+				+ iscircle + ", doj=" + doj + "]";
 	}
 	
 	
