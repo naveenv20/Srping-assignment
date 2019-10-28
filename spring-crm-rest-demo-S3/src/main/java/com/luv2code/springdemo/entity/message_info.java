@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 @Table(name="message_info")
@@ -114,7 +116,7 @@ public class message_info {
 	}
 
 
-
+	@JsonBackReference
 	public user_info getUser_Info() {
 		return user_Info;
 	}
@@ -128,7 +130,7 @@ public class message_info {
 
 
 	public message_info(String message, int receiver_id, boolean iscircle, Date doj) {
-		super();
+		
 		this.message = message;
 		this.receiver_id = receiver_id;
 		this.iscircle = iscircle;

@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="circle")
 public class circle {
@@ -72,6 +74,7 @@ public class circle {
 		this.circle_name = circle_name;
 	}
 
+	@JsonBackReference
 	public user_info getCircle_user_Info() {
 		return circle_user_Info;
 	}

@@ -1,6 +1,7 @@
 package com.luv2code.springdemo.entity;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,8 +11,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 
@@ -36,32 +41,39 @@ public class user_info {
 	
 	@Column(name="userid")
 	private String userid;
-
-	@OneToMany(fetch = FetchType.LAZY,mappedBy="user_Info", 
+	
+	
+	
+/*
+	@OneToMany(fetch = FetchType.EAGER,mappedBy="user_Info", 
 			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 						CascadeType.REFRESH})
+	
 	private List<message_info> message_Info;
 	
 	
 	@OneToMany(mappedBy="circle_user_Info", 
 			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 						CascadeType.REFRESH})
+	@Fetch(FetchMode.SELECT)
 	private List<circle> cirCles;
 	
 	
 	@OneToMany(mappedBy="sender_Info", 
 			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 						CascadeType.REFRESH})
+	@Fetch(FetchMode.SELECT)
 	private List<user_inbox> userinboxsender;
 	
 	@OneToMany(mappedBy="receiver_Info", 
 			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 						CascadeType.REFRESH})
+	@Fetch(FetchMode.SELECT)
 	private List<user_inbox> userinboxreceiver;
 	
-	
-	
-	
+	*/
+	/*
+	@JsonManagedReference
 	public List<user_inbox> getUserinboxsender() {
 		return userinboxsender;
 	}
@@ -70,6 +82,7 @@ public class user_info {
 		this.userinboxsender = userinboxsender;
 	}
 
+	@JsonManagedReference
 	public List<user_inbox> getUserinboxreceiver() {
 		return userinboxreceiver;
 	}
@@ -78,6 +91,8 @@ public class user_info {
 		this.userinboxreceiver = userinboxreceiver;
 	}
 
+	
+	@JsonManagedReference
 	public List<message_info> getMessage_Info() {
 		return message_Info;
 	}
@@ -86,6 +101,7 @@ public class user_info {
 		this.message_Info = message_Info;
 	}
 
+	@JsonManagedReference
 	public List<circle> getCirCles() {
 		return cirCles;
 	}
@@ -93,7 +109,7 @@ public class user_info {
 	public void setCirCles(List<circle> cirCles) {
 		this.cirCles = cirCles;
 	}
-
+*/
 	
 
 	public int getId() {
@@ -142,7 +158,7 @@ public class user_info {
 	}
 
 	public user_info(String firstname, String lastname, String password, String userid) {
-		super();
+		
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.password = password;

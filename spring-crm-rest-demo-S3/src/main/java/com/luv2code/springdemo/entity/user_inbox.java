@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity
 @Table(name="user_inbox")
@@ -104,7 +106,7 @@ public class user_inbox {
 		this.doj = doj;
 	}
 
-
+	@JsonBackReference
 	public user_info getSender_Info() {
 		return sender_Info;
 	}
@@ -114,7 +116,7 @@ public class user_inbox {
 		this.sender_Info = sender_Info;
 	}
 
-
+	@JsonBackReference
 	public user_info getReceiver_Info() {
 		return receiver_Info;
 	}
