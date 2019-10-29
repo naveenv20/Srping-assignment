@@ -5,6 +5,7 @@ import java.util.List;
 import javax.management.RuntimeErrorException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.luv2code.springdemo.entity.user_info;
+
 import com.luv2code.springdemo.service.Testtbservice;
 
 
@@ -30,9 +32,19 @@ public class UserRestController {
 	//add mappinh for GET /customers
 	
 	@RequestMapping("/users")
-	public List<user_info> getcustomers(){
+	public String getcustomers(Model theModel){
 			
-		return testtbService.getUserdata();
+		
+		// get users from the service
+				List<user_info> theusers = testtbService.getUserdata();
+						
+				// add the customers to the model
+				theModel.addAttribute("userslist", theusers);
+				
+				return "list-users";
+		
+		
+		//return testtbService.getUserdata();
 		
 	}
 	
