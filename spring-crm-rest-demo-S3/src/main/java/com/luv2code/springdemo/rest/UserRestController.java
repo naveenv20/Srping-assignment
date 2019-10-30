@@ -30,7 +30,7 @@ public class UserRestController {
 	//add mappinh for GET /customers
 	
 	@RequestMapping("/users")
-	public String getcustomers(Model theModel){
+	public List<user_info> getcustomers(Model theModel){
 			
 		
 		// get users from the service
@@ -39,10 +39,10 @@ public class UserRestController {
 				// add the customers to the model
 				theModel.addAttribute("userslist", theusers);
 				
-				return "list-users";
+				//return "list-users";
 		
 		
-		//return testtbService.getUserdata();
+		return testtbService.getUserdata();
 		
 	}
 	
