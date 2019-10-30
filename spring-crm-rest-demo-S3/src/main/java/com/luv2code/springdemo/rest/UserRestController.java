@@ -19,8 +19,6 @@ import com.luv2code.springdemo.entity.user_info;
 
 import com.luv2code.springdemo.service.Testtbservice;
 
-
-
 @RestController
 @RequestMapping("/api")
 public class UserRestController {

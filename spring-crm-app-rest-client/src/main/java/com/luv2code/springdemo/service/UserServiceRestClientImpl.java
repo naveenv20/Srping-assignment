@@ -11,10 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+
 import com.luv2code.springdemo.model.user_info;
 
 @Service
-public class CustomerServiceRestClientImpl implements CustomerService {
+public class UserServiceRestClientImpl implements UserService {
 
 	private RestTemplate restTemplate;
 
@@ -23,7 +24,7 @@ public class CustomerServiceRestClientImpl implements CustomerService {
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
 	@Autowired
-	public CustomerServiceRestClientImpl(RestTemplate theRestTemplate, 
+	public UserServiceRestClientImpl(RestTemplate theRestTemplate, 
 										@Value("${crm.rest.url}") String theUrl) {
 		restTemplate = theRestTemplate;
 		crmRestUrl = theUrl;
@@ -32,7 +33,7 @@ public class CustomerServiceRestClientImpl implements CustomerService {
 	}
 	
 	@Override
-	public List<user_info> getCustomers() {
+	public List<user_info> getUsers() {
 		
 		logger.info("in getCustomers(): Calling REST API " + crmRestUrl);
 
@@ -42,57 +43,57 @@ public class CustomerServiceRestClientImpl implements CustomerService {
 																  new ParameterizedTypeReference<List<user_info>>() {});
 
 		// get the list of customers from response
-		List<user_info> customers = responseEntity.getBody();
+		List<user_info> users = responseEntity.getBody();
 
-		logger.info("in getCustomers(): customers" + customers);
+		logger.info("in getusers(): users" + users);
 		
-		return customers;
+		return users;
 	}
 
 	@Override
-	public user_info getCustomer(int theId) {
+	public user_info getUser(int theId) {
 
 		logger.info("in getCustomer(): Calling REST API " + crmRestUrl);
 
 		// make REST call
-		user_info theCustomer = 
+		user_info theUser = 
 				restTemplate.getForObject(crmRestUrl + "/" + theId, 
-										  user_info.class);
+						user_info.class);
 
-		logger.info("in saveCustomer(): theCustomer=" + theCustomer);
+		logger.info("in saveCustomer(): theCustomer=" + theUser);
 		
-		return theCustomer;
+		return theUser;
 	}
 
 	@Override
-	public void saveCustomer(user_info theCustomer) {
+	public void saveUser(user_info theUser) {
 
 		logger.info("in saveCustomer(): Calling REST API " + crmRestUrl);
 		
-		int employeeId = theCustomer.getId();
+		int userId = theUser.getId();
 
 		// make REST call
-		if (employeeId == 0) {
+		if (userId == 0) {
 			// add employee
-			restTemplate.postForEntity(crmRestUrl, theCustomer, String.class);			
+			restTemplate.postForEntity(crmRestUrl, theUser, String.class);			
 		
 		} else {
 			// update employee
-			restTemplate.put(crmRestUrl, theCustomer);
+			restTemplate.put(crmRestUrl, theUser);
 		}
 
-		logger.info("in saveCustomer(): success");	
+		logger.info("in saveUser(): success");	
 	}
 
 	@Override
-	public void deleteCustomer(int theId) {
+	public void deleteUser(int theId) {
 
-		logger.info("in deleteCustomer(): Calling REST API " + crmRestUrl);
+		logger.info("in deleteUser(): Calling REST API " + crmRestUrl);
 
 		// make REST call
 		restTemplate.delete(crmRestUrl + "/" + theId);
 
-		logger.info("in deleteCustomer(): deleted customer theId=" + theId);
+		logger.info("in deleteUser(): deleted user theId=" + theId);
 	}
 
 }

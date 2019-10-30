@@ -1,6 +1,6 @@
 package com.luv2code.springdemo.model;
 
-public class Customer {
+public class user_info {
 
 	private int id;
 	
@@ -10,7 +10,7 @@ public class Customer {
 	
 	private String email;
 	
-	public Customer() {
+	public user_info() {
 		
 	}
 
