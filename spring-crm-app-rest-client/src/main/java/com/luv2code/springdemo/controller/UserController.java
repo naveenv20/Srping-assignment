@@ -30,7 +30,7 @@ public class UserController {
 		List<user_info> theUsers = userService.getUsers();
 				
 		// add the customers to the model
-		theModel.addAttribute("customers", theUsers);
+		theModel.addAttribute("users", theUsers);
 		
 		return "list-users";
 	}
@@ -46,7 +46,7 @@ public class UserController {
 		return "user-form";
 	}
 	
-	@PostMapping("/saveUserr")
+	@PostMapping("/saveUser")
 	public String saveUser(@ModelAttribute("user") user_info theUser) {
 		
 		// save the customer using our service

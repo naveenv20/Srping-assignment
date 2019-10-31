@@ -5,7 +5,7 @@
 <html>
 
 <head>
-	<title>List Customers</title>
+	<title>List Users</title>
 	
 	<!-- reference our style sheet -->
 
@@ -29,7 +29,7 @@
 		
 			<!-- put new button: Add Customer -->
 		
-			<input type="button" value="Add Customer"
+			<input type="button" value="Add User"
 				   onclick="window.location.href='showFormForAdd'; return false;"
 				   class="add-button"
 			/>
@@ -46,16 +46,16 @@
 				</tr>
 				
 				<!-- loop over and print our customers -->
-				<c:forEach var="tempUser" items="${customers}">
+				<c:forEach var="tempUser" items="${users}">
 				
 					<!-- construct an "update" link with customer id -->
-					<c:url var="updateLink" value="/customer/showFormForUpdate">
-						<c:param name="customerId" value="${tempUser.id}" />
+					<c:url var="updateLink" value="/user/showFormForUpdate">
+						<c:param name="userId" value="${tempUser.id}" />
 					</c:url>					
 
 					<!-- construct an "delete" link with customer id -->
-					<c:url var="deleteLink" value="/customer/delete">
-						<c:param name="customerId" value="${tempUser.id}" />
+					<c:url var="deleteLink" value="/user/delete">
+						<c:param name="userId" value="${tempUser.id}" />
 					</c:url>					
 					
 					<tr>
