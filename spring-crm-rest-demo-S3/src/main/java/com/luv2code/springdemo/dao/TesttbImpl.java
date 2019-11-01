@@ -24,30 +24,9 @@ public class TesttbImpl implements TesttbDAO {
 	
 	
 	
-@Override
-	
-	public List<circle> getCircledata() {
-	
-		//get current hiberate session
-				//Session currentSession=sessionFactory.getCurrentSession();
-		Session currentSession = sessionFactory.getCurrentSession();
-			
-				
-				//cretae a query nd sort by lastname
-				Query<circle> theQuery=
-						currentSession.createQuery("from circle",circle.class);
-				
-				
-				
-				//execute query and get result
-				List<circle> results=theQuery.getResultList();
-					
-				
-				
-				
-		return results;
-	}
 
+	
+	
 
 
 @Override

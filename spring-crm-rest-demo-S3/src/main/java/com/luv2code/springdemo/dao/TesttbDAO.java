@@ -16,7 +16,7 @@ public interface TesttbDAO {
 	
 
 
-	public List<circle> getCircledata();
+	
 	
 	public List<user_info> getUserdata();
 

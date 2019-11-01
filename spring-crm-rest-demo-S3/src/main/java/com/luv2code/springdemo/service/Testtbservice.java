@@ -25,7 +25,7 @@ public interface Testtbservice {
 
 	
 	
-	public List<circle> getCircledata();
+	
 	
 	public List<message_info> getMessagedata();
 	

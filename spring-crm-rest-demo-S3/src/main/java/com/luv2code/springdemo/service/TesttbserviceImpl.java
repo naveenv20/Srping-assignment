@@ -23,12 +23,7 @@ public class TesttbserviceImpl implements Testtbservice {
 	
 	
 
-	@Override
-	@Transactional
-	public List<circle> getCircledata() {
-		// TODO Auto-generated method stub
-		return testtbDAO.getCircledata();
-	}
+	
 
 
 
