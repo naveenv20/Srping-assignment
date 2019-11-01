@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.luv2code.springdemo.model.circle;
-import com.luv2code.springdemo.model.user_info;
-import com.luv2code.springdemo.service.UserService;
+
 import com.luv2code.springdemo.service.circleService;
 
 
@@ -48,7 +47,7 @@ public class CircleController {
 		return "circle-form";
 	}
 	
-	@PostMapping("/saveC")
+	@PostMapping("/saveCircle")
 	public String saveCircle(@ModelAttribute("circle") circle theCircle) {
 		
 		// save the customer using our service
