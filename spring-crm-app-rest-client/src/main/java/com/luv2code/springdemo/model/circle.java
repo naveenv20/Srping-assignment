@@ -1,6 +1,12 @@
 package com.luv2code.springdemo.model;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 
@@ -10,7 +16,7 @@ public class circle {
 	
 	private int id;
 	
-	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date doj;
 	
 	
@@ -40,6 +46,16 @@ public class circle {
 	}
 
 	public Date getDoj() {
+		
+		String abc=(new SimpleDateFormat("yyyy-MM-dd").format(doj));
+		System.out.println("==============>"+abc);
+		
+		try {
+			doj=new SimpleDateFormat("yyyy-MM-dd").parse(abc);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return doj;
 	}
 
@@ -65,7 +81,7 @@ public class circle {
 
 	@Override
 	public String toString() {
-		return "circle [id=" + id + ", doj=" + doj + ", circle_name=" + circle_name + "]";
+		return "circle%%% [id=" + id + ", doj=" + doj + ", circle_name=" + circle_name + "]";
 	}
 	
 	

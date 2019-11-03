@@ -1,11 +1,16 @@
 package com.luv2code.springdemo.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +28,12 @@ public class CircleController {
 	// need to inject our customer service
 	@Autowired
 	private circleService circleservice;
+	
+	@InitBinder     
+	public void initBinder(WebDataBinder binder){
+	     binder.registerCustomEditor(Date.class,     
+	                         new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true, 10));   
+	}
 	
 	@GetMapping("/list")
 	public String listcircles(Model theModel) {
@@ -42,7 +53,7 @@ public class CircleController {
 		// create model attribute to bind form data
 		circle theCircle = new circle();
 		
-		theModel.addAttribute("user", theCircle);
+		theModel.addAttribute("circle", theCircle);
 		
 		return "circle-form";
 	}

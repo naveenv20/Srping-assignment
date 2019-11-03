@@ -19,14 +19,14 @@
 	
 	<div id="wrapper">
 		<div id="header">
-			<h2>User Manager</h2>
+			<h2>Circle Manager</h2>
 		</div>
 	</div>
 
 	<div id="container">
-		<h3>Save User</h3>
+		<h3>Save Circle</h3>
 	
-		<form:form action="saveUser" modelAttribute="user" method="POST">
+		<form:form action="saveCircle" modelAttribute="circle" method="POST">
 
 			<!-- need to associate this data with customer id -->
 			<form:hidden path="id" />
@@ -34,24 +34,20 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><label>First name:</label></td>
-						<td><form:input path="firstname" /></td>
+						<td><label>Circle name:</label></td>
+						<td><form:input path="circle_name" /></td>
 					</tr>
 				
 					<tr>
-						<td><label>Last name:</label></td>
-						<td><form:input path="lastname" /></td>
+						<td><label>Date of Creation</label></td>
+						<td><form:input path="doj" /></td>
 					</tr>
 
 					<tr>
-						<td><label>Email:</label></td>
-						<td><form:input path="password" /></td>
+						<td><label>Created By</label></td>
+						<td><form:input path="circle_user_Info.id" /></td>
 					</tr>
-					<tr>
-						<td><label>UserID:</label></td>
-						<td><form:input path="userid" /></td>
-					</tr>
-
+					
 					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save" /></td>
@@ -67,7 +63,7 @@
 		<div style="clear; both;"></div>
 		
 		<p>
-			<a href="${pageContext.request.contextPath}/user/list">Back to User List</a>
+			<a href="${pageContext.request.contextPath}/circle/list">Back to Circle List</a>
 		</p>
 	
 	</div>

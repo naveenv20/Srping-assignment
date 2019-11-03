@@ -2,3 +2,6 @@ https://www.udemy.com/course/spring-hibernate-tutorial/learn/lecture/14799250#qu
 https://stackoverflow.com/a/21188897
 
 https://stackoverflow.com/a/3329629
+
+
+https://stackoverflow.com/questions/6162401/convert-and-format-a-date-in-jsp

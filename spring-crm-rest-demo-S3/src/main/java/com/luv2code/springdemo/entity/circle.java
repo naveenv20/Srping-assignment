@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
@@ -26,8 +28,9 @@ public class circle {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="created_date_time")	
-	@Temporal(value= TemporalType.TIMESTAMP)
+	@Column(name="created_date_time")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(value= TemporalType.DATE)
 	private Date doj;
 	
 	@Column(name="circle_name")
@@ -85,7 +88,7 @@ public class circle {
 
 	@Override
 	public String toString() {
-		return "circle [id=" + id + ", doj=" + doj + ", circle_name=" + circle_name + "]";
+		return "circle**** [id=" + id + ", doj=" + doj + ", circle_name=" + circle_name + "]";
 	}
 	
 	

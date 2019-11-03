@@ -78,7 +78,7 @@ public class circleServiceImpl implements circleService {
 
 	@Override
 	public void saveCircle(circle theCircle) {
-logger.info("in saveCustomer(): Calling REST API " + crmRestUrl);
+logger.info("in saveCircle(): Calling REST API " + crmRestUrl);
 		
 		int circleId = theCircle.getId();
 
