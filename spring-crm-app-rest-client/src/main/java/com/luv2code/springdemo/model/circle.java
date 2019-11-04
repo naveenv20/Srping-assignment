@@ -3,8 +3,7 @@ package com.luv2code.springdemo.model;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-
+import java.util.TimeZone;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -46,16 +45,19 @@ public class circle {
 	}
 
 	public Date getDoj() {
+//		
+//		String abc=(new SimpleDateFormat("yyyy-MM-dd").format(doj));
+//		System.out.println("==============>"+abc);
+//		
+//		try {
+//			doj=new SimpleDateFormat("yyyy-MM-dd").parse(abc);
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
-		String abc=(new SimpleDateFormat("yyyy-MM-dd").format(doj));
-		System.out.println("==============>"+abc);
+		TimeZone.setDefault(TimeZone.getTimeZone("ADT"));
 		
-		try {
-			doj=new SimpleDateFormat("yyyy-MM-dd").parse(abc);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return doj;
 	}
 
