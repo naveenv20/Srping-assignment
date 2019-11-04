@@ -62,18 +62,19 @@ public class usercircleServiceImpl implements usercircleService {
 	@Override
 	public List<user_circle> getusercircledata(int userId) {
 		
-		logger.info("in getusercircledata(): Calling REST API " + crmRestUrl);
+		logger.info("in getcircles(): Calling REST API " + crmRestUrl);
 
 		// make REST call
-		
-		List<user_circle> usercircles=restTemplate.get
-		circle theCircle = 
-				restTemplate.getForObject(crmRestUrl + "/" + theId, 
-						circle.class);
+		ResponseEntity<List<user_circle>> responseEntity = 
+											restTemplate.exchange(crmRestUrl, HttpMethod.GET, null, 
+																  new ParameterizedTypeReference<List<user_circle>>() {});
 
-		logger.info("in savecircle(): thecircle=" + theCircle);
+		// get the list of customers from response
+		List<user_circle> usercircles = responseEntity.getBody();
+
+		logger.info("in getusercircledata(): circleusers" + usercircles);
 		
-		return theCircle;
+		return usercircles;
 		
 	}
 

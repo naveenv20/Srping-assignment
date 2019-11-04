@@ -77,18 +77,9 @@
 						
 			</table>
 
-<hr>
-
-<table border=2>
-				<tr>
-
-					<th>CircleName</th>
-					<th>UserID</th>
-					<th>Subscribed</th>
-				</tr>
 
 
-			</table>
+
 
 
 

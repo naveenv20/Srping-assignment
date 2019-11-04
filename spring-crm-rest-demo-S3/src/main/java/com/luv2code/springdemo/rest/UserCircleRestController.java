@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.luv2code.springdemo.entity.user_circle;
@@ -31,11 +32,11 @@ public class UserCircleRestController {
 	
 	//add mappinh for GET /customers
 	
-	@RequestMapping("/usercircles/circle/{circleId}")
+	@RequestMapping(value ="/usercircles/circle/circleId")
 	@Transactional
-	public List<user_circle> getcustomers(Model theModel,@PathVariable int circleId){
+	public List<user_circle> getcustomers(Model theModel,@RequestParam("circleId") int theId){
 		
-		return UsercircleService.getusercircledata(circleId);
+		return UsercircleService.getusercircledata(theId);
 		
 	}
 	
@@ -48,6 +49,6 @@ public class UserCircleRestController {
 		
 	}
 	
-	
+	//https://springframework.guru/spring-requestmapping-annotation/
 	
 }
