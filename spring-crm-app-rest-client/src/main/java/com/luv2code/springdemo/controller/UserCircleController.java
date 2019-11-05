@@ -80,7 +80,7 @@ public class UserCircleController {
 	
 	
 	@GetMapping("/showFormForAdd")
-	public String showFormForAdd(Model theModel) {
+	public String showFormForAdd(@RequestParam("circleId") int theId, Model theModel) {
 		
 		// create model attribute to bind form data
 		user_circle theUserCircle = new user_circle();

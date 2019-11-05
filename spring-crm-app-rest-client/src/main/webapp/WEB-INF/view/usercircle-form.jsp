@@ -35,7 +35,7 @@
 				<tbody>
 					<tr>
 						<td><label>Circle id:</label></td>
-						<td><form:input path="theCircle.circle_id" /></td>
+						<td><form:input path="theCircle.circle_id" value="${request.getParameter('circleId')"}/></td>
 					</tr>
 				
 					<tr>

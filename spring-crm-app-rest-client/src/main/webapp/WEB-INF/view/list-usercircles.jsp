@@ -29,7 +29,7 @@
 		
 			<!-- put new button: Add Customer -->
 		
-			<input type="button" value="Add Circle"
+			<input type="button" value="Add User"
 				   onclick="window.location.href='showFormForAdd'; return false;"
 				   class="add-button"
 			/>

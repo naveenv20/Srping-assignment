@@ -81,6 +81,7 @@ CREATE TABLE `user_circle` (
   `subscribe` boolean NOT NULL,
   
   PRIMARY KEY (`id`),
+  UNIQUE KEY `template_fun_id` (`circle_id` , `user_id`)
   
   KEY `user_key` (`user_id`),
   CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) 
