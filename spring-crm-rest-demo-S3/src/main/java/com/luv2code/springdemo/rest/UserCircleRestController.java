@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.luv2code.springdemo.entity.circle;
 import com.luv2code.springdemo.entity.user_circle;
 import com.luv2code.springdemo.entity.user_info;
 
@@ -33,7 +34,7 @@ public class UserCircleRestController {
 	//add mappinh for GET /customers
 	
 	@RequestMapping("/usercircles/circle/{circleId}")
-	@Transactional
+	
 	public List<user_circle> getcustomers(Model theModel,@PathVariable int circleId){
 		
 		return UsercircleService.getusercircledata(circleId);
@@ -42,7 +43,7 @@ public class UserCircleRestController {
 	
 
 	@RequestMapping("/usercircles/user/{userId}")
-	@Transactional
+	
 	public List<user_circle> getcirclesforuser(Model theModel,@PathVariable int userId){
 		
 		return UsercircleService.getusercircledata2(userId);
@@ -50,5 +51,22 @@ public class UserCircleRestController {
 	}
 	
 	//https://springframework.guru/spring-requestmapping-annotation/
+	
+	
+	
+	@PostMapping("/usercircles")
+	@Transactional
+	public user_circle addUser(@RequestBody user_circle theUserCircle){
+		
+		
+		//also just in the case the pass the id in JSON ...set id to 0
+		//this is force a save of new item .. instead of doing update 
+		UsercircleService.saveUserCircle(theUserCircle);
+		
+		
+		return theUserCircle;
+		
+	}
+	
 	
 }

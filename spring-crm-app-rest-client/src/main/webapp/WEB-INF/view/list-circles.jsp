@@ -53,9 +53,14 @@
 					</c:url>					
 
 					<!-- construct an "delete" link with customer id -->
+					<c:url var="GetUsers" value="/circle/listcircleusers">
+						<c:param name="circleId" value="${tempUser.id}" />
+					</c:url>		
+					
+					<!-- construct an "delete" link with customer id -->
 					<c:url var="deleteLink" value="/circle/delete">
 						<c:param name="circleId" value="${tempUser.id}" />
-					</c:url>					
+					</c:url>			
 					
 					<tr>
 					<td><fmt:formatDate value="${tempUser.doj}" pattern="yyyy-MM-dd" /></td>
@@ -69,6 +74,8 @@
 							|
 							<a href="${deleteLink}"
 							   onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+							   
+							<a href="${GetUsers}">GetUsers</a>
 						</td>
 						
 					</tr>

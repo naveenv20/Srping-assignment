@@ -78,4 +78,26 @@ public class usercircleServiceImpl implements usercircleService {
 		
 	}
 
+
+
+	@Override
+	public void saveUserCircle(user_circle theUserCircle) {
+logger.info("in saveUserCircle(): Calling REST API " + crmRestUrl);
+		
+		int theUserCircleId = theUserCircle.getId();
+
+		// make REST call
+		if (theUserCircleId == 0) {
+			// add employee
+			restTemplate.postForEntity(crmRestUrl, theUserCircle, String.class);			
+		
+		} else {
+			// update employee
+			restTemplate.put(crmRestUrl, theUserCircle);
+		}
+
+		logger.info("in saveUserCircle(): success");	
+		
+	}
+
 }

@@ -54,4 +54,12 @@ public class usercircleDAOImpl implements usercircleDAO {
 		return results;
 	}
 
+	@Override
+	public void saveUserCircle(user_circle theUserCircle) {
+Session currentSession = sessionFactory.getCurrentSession();
+		
+		// save/upate the customer ... finally LOL
+		currentSession.saveOrUpdate(theUserCircle);
+	}
+
 }

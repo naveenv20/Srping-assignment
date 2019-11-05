@@ -7,12 +7,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -60,6 +62,36 @@ public class UserCircleController {
 		return "list-usercircles";
 	}
 
+	
+	
+	@PostMapping("/saveUserCircle")
+	
+	public String addUserCircle(@RequestBody user_circle theUserCircle){
+		
+		
+		//also just in the case the pass the id in JSON ...set id to 0
+		//this is force a save of new item .. instead of doing update 
+		usercircleservice.saveUserCircle(theUserCircle);
+		
+		
+		return "redirect:/circle/list";
+		
+	}
+	
+	
+	@GetMapping("/showFormForAdd")
+	public String showFormForAdd(Model theModel) {
+		
+		// create model attribute to bind form data
+		user_circle theUserCircle = new user_circle();
+		
+		theModel.addAttribute("usercircle", theUserCircle);
+		
+		return "usercircle-form";
+	}
+	
+	
+	
 }
 
 
