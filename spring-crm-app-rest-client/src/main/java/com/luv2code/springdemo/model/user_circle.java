@@ -7,24 +7,27 @@ public class user_circle {
 
 	private int id;
 
-	
-	public user_circle(){
-		
-	}
-	
-	
+	private circle theCircle;
 
-	private user_info User_info;
-	
-	
-
-
-	private circle Circle;
-	
-	
 	private boolean subscribe;
+
+	private user_info user_Info;
 	
 	
+
+
+
+
+	
+	
+	public user_info getUser_Info() {
+		return user_Info;
+	}
+
+	public void setUser_Info(user_info user_Info) {
+		this.user_Info = user_Info;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -33,20 +36,19 @@ public class user_circle {
 		this.id = id;
 	}
 
-	public user_info getUser_info() {
-		return User_info;
+	
+
+	
+
+
+
+
+	public circle getTheCircle() {
+		return theCircle;
 	}
 
-	public void setUser_info(user_info user_info) {
-		User_info = user_info;
-	}
-
-	public circle getCircle() {
-		return Circle;
-	}
-
-	public void setCircle(circle circle) {
-		Circle = circle;
+	public void setTheCircle(circle circle) {
+		theCircle = circle;
 	}
 
 	public boolean isSubscribe() {
@@ -57,6 +59,15 @@ public class user_circle {
 		this.subscribe = subscribe;
 	}
 
+	public user_circle() {
+
+	}
+
+
 		
-	
+	@Override
+	public String toString() {
+		return "user_circle [id=" + id + ", User_info=" + user_Info + ", Circle=" + theCircle + ", subscribe=" + subscribe
+				+ "]";
+	}
 }

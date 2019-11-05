@@ -43,11 +43,22 @@ public class UserCircleController {
 		List<user_circle> theCircleusers = usercircleservice.getcircleuserdata(theId);
 				
 		// add the customers to the model
-		theModel.addAttribute("circleusers", theCircleusers);
+		theModel.addAttribute("usercirclelist", theCircleusers);
 		
 		return "list-usercircles";
 	}
 	
+	@GetMapping("/listusercircles")
+	public String listusercircles(@RequestParam("userId") int theId,Model theModel) {
+		
+		// get customers from the service
+		List<user_circle> theusercircless = usercircleservice.getusercircledata(theId);
+				
+		// add the customers to the model
+		theModel.addAttribute("usercirclelist", theusercircless);
+		
+		return "list-usercircles";
+	}
 
 }
 

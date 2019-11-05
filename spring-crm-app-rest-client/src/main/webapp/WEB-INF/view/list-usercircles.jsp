@@ -41,7 +41,7 @@
 
 <table border=2>
 				<tr>
-
+					<th>CircleID</th>
 					<th>CircleName</th>
 					<th>UserID</th>
 					<th>Subscribed</th>
@@ -50,12 +50,15 @@
 
 
 
-<c:forEach var="tempcircleUser" items="${theCircleusers}">
+<c:forEach var="tempcircleUser" items="${usercirclelist}">
 				
 								
 					
 					<tr>
-						<td> ${tempcircleUser.subscribe} </td>
+					<td>${tempcircleUser.theCircle.id}</td>
+					<td>${tempcircleUser.theCircle.circle_name}</td>
+					<td>${tempcircleUser.user_Info.userid}</td>
+					<td>${tempcircleUser.subscribe}</td>
 					</tr>
 				
 				</c:forEach>

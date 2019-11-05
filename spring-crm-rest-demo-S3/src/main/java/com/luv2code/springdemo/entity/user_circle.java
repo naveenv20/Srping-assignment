@@ -28,14 +28,14 @@ public class user_circle {
 	@ManyToOne(cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH})
 	@JoinColumn(name="user_id")
-	private user_info User_info;
+	private user_info user_Info;
 	
 	
 
 	@ManyToOne(cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH})
 	@JoinColumn(name="circle_id")
-	private circle Circle;
+	private circle theCircle;
 	
 	@Column(name="subscribe")
 	private boolean subscribe;
@@ -49,20 +49,20 @@ public class user_circle {
 		this.id = id;
 	}
 
-	public user_info getUser_info() {
-		return User_info;
+	public user_info getUser_Info() {
+		return user_Info;
 	}
 
-	public void setUser_info(user_info user_info) {
-		User_info = user_info;
+	public void setUser_Info(user_info user_info) {
+		user_Info = user_info;
 	}
 
-	public circle getCircle() {
-		return Circle;
+	public circle getTheCircle() {
+		return theCircle;
 	}
 
-	public void setCircle(circle circle) {
-		Circle = circle;
+	public void setTheCircle(circle circle) {
+		theCircle = circle;
 	}
 
 	public boolean isSubscribe() {
@@ -71,6 +71,12 @@ public class user_circle {
 
 	public void setSubscribe(boolean subscribe) {
 		this.subscribe = subscribe;
+	}
+
+	@Override
+	public String toString() {
+		return "user_circle [id=" + id + ", User_info=" + user_Info + ", Circle=" + theCircle + ", subscribe=" + subscribe
+				+ "]";
 	}
 
 		

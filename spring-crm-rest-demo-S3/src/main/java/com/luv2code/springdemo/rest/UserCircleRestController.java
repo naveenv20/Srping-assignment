@@ -32,11 +32,11 @@ public class UserCircleRestController {
 	
 	//add mappinh for GET /customers
 	
-	@RequestMapping(value ="/usercircles/circle/circleId")
+	@RequestMapping("/usercircles/circle/{circleId}")
 	@Transactional
-	public List<user_circle> getcustomers(Model theModel,@RequestParam("circleId") int theId){
+	public List<user_circle> getcustomers(Model theModel,@PathVariable int circleId){
 		
-		return UsercircleService.getusercircledata(theId);
+		return UsercircleService.getusercircledata(circleId);
 		
 	}
 	

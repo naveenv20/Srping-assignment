@@ -44,7 +44,7 @@ public class usercircleServiceImpl implements usercircleService {
 
 		// make REST call
 		ResponseEntity<List<user_circle>> responseEntity = 
-											restTemplate.exchange(crmRestUrl, HttpMethod.GET, null, 
+											restTemplate.exchange("http://localhost:8080/spring-crm-rest/api/usercircles/circle/"+circleId, HttpMethod.GET, null, 
 																  new ParameterizedTypeReference<List<user_circle>>() {});
 
 		// get the list of customers from response
@@ -66,13 +66,13 @@ public class usercircleServiceImpl implements usercircleService {
 
 		// make REST call
 		ResponseEntity<List<user_circle>> responseEntity = 
-											restTemplate.exchange(crmRestUrl, HttpMethod.GET, null, 
+											restTemplate.exchange("http://localhost:8080/spring-crm-rest/api/usercircles/user/"+userId, HttpMethod.GET, null, 
 																  new ParameterizedTypeReference<List<user_circle>>() {});
 
 		// get the list of customers from response
 		List<user_circle> usercircles = responseEntity.getBody();
 
-		logger.info("in getusercircledata(): circleusers" + usercircles);
+		logger.info("in getusercircledata(): usercircles" + usercircles);
 		
 		return usercircles;
 		
