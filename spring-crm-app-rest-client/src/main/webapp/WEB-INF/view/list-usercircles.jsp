@@ -45,6 +45,7 @@
 					<th>CircleName</th>
 					<th>UserID</th>
 					<th>Subscribed</th>
+					<th>Action</th>
 				</tr>
 
 
@@ -52,7 +53,9 @@
 
 <c:forEach var="tempcircleUser" items="${usercirclelist}">
 				
-								
+						<c:url var="AddUsers" value="/usercircle/showFormForAdd">
+						<c:param name="circleId" value="${tempcircleUser.theCircle.id}" />
+					</c:url>			
 					
 					<tr>
 					<td>${tempcircleUser.theCircle.id}</td>

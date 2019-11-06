@@ -25,7 +25,7 @@ import com.luv2code.springdemo.service.usercircleService;
 
 
 @Controller
-@RequestMapping("/circle")
+@RequestMapping("/usercircle")
 public class UserCircleController {
 
 	// need to inject our customer service
@@ -46,7 +46,8 @@ public class UserCircleController {
 				
 		// add the customers to the model
 		theModel.addAttribute("usercirclelist", theCircleusers);
-		
+		System.out.println("##############"+theId);
+		theModel.addAttribute("circleId", theId);
 		return "list-usercircles";
 	}
 	
@@ -58,6 +59,7 @@ public class UserCircleController {
 				
 		// add the customers to the model
 		theModel.addAttribute("usercirclelist", theusercircless);
+		
 		
 		return "list-usercircles";
 	}
@@ -80,11 +82,12 @@ public class UserCircleController {
 	
 	
 	@GetMapping("/showFormForAdd")
-	public String showFormForAdd(@RequestParam("circleId") int theId, Model theModel) {
+	public String showFormForAdd(@RequestParam("userId") int theId,Model theModel) {
 		
 		// create model attribute to bind form data
 		user_circle theUserCircle = new user_circle();
-		
+		circle theCircle = usercircleservice.getCircle(theId);
+	
 		theModel.addAttribute("usercircle", theUserCircle);
 		
 		return "usercircle-form";

@@ -100,4 +100,12 @@ logger.info("in saveUserCircle(): Calling REST API " + crmRestUrl);
 		
 	}
 
+
+
+	@Override
+	public circle getCircle(int theId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
