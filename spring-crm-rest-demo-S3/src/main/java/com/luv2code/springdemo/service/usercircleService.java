@@ -13,5 +13,7 @@ public interface usercircleService {
 
 	public void saveUserCircle(user_circle theUserCircle);
 	
+	public circle getCircle(int circleId);
+	
 
 }

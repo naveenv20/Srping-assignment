@@ -69,4 +69,17 @@ public class UserCircleRestController {
 	}
 	
 	
+	@RequestMapping("/usercircles/{circleId}")
+	public circle getcustomer(@PathVariable int circleId ){
+			
+		circle thecircle=UsercircleService.getCircle(circleId);
+		
+		
+		
+		return thecircle;
+		
+	}
+	
+	
+	
 }

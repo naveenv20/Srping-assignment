@@ -35,12 +35,12 @@
 				<tbody>
 					<tr>
 						<td><label>Circle id:</label></td>
-						<td><form:input path="theCircle.circle_id" value="${request.getParameter('circleId')"}/></td>
+						<td><form:input path="theCircle.id"/></td>
 					</tr>
 				
 					<tr>
 						<td><label>user_id</label></td>
-						<td><form:input path="user_Info.user_id" /></td>
+						<td><form:input path="user_Info.id" /></td>
 					</tr>
 					
 					<tr>
@@ -48,10 +48,7 @@
 						<td><form:input path="subscribe" /></td>
 					</tr>
 
-					<!-- tr>
-						<td><label>Created By</label></td>
-						<td><form:input path="circle_user_Info.id" /></td>
-					</tr-->
+					
 					
 					<tr>
 						<td><label></label></td>

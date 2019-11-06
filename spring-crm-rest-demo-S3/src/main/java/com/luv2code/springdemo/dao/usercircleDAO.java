@@ -15,5 +15,7 @@ public interface usercircleDAO {
 	public List<user_circle> getusercircledata2(int userId);
 
 	public void saveUserCircle(user_circle theUserCircle);
+
+	public circle getCircle(int circleId);
 	
 }

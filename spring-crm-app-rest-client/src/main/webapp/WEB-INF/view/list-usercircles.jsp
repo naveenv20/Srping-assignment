@@ -34,6 +34,8 @@
 				   class="add-button"
 			/>
 		
+		
+		
 			<!--  add our html table here -->
 		
 			
@@ -52,7 +54,10 @@
 
 <c:forEach var="tempcircleUser" items="${usercirclelist}">
 				
-								
+					<c:url var="AddUsersToCircleLink" value="/usercircles/showFormForAdd">
+						<c:param name="circleId" value="${tempcircleUser.theCircle.id}" />
+					</c:url>	
+							
 					
 					<tr>
 					<td>${tempcircleUser.theCircle.id}</td>
@@ -60,7 +65,7 @@
 					<td>${tempcircleUser.user_Info.userid}</td>
 					<td>${tempcircleUser.subscribe}</td>
 					</tr>
-				
+				<a href="${AddUsersToCircleLink}">AddUsersToCircleLink</a>
 				</c:forEach>
 
 

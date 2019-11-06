@@ -25,7 +25,7 @@ import com.luv2code.springdemo.service.usercircleService;
 
 
 @Controller
-@RequestMapping("/circle")
+@RequestMapping("/usercircles")
 public class UserCircleController {
 
 	// need to inject our customer service
@@ -86,6 +86,9 @@ public class UserCircleController {
 		user_circle theUserCircle = new user_circle();
 		
 		theModel.addAttribute("usercircle", theUserCircle);
+		
+		circle thecircle=usercircleservice.getcircle(theId);
+		theUserCircle.setTheCircle(thecircle);
 		
 		return "usercircle-form";
 	}

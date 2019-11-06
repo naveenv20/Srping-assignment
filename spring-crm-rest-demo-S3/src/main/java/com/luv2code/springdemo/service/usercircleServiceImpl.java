@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.luv2code.springdemo.dao.usercircleDAO;
+import com.luv2code.springdemo.entity.circle;
 import com.luv2code.springdemo.entity.user_circle;
 
 @Service
@@ -30,9 +31,17 @@ public class usercircleServiceImpl implements usercircleService {
 	}
 
 	@Override
+	@Transactional
 	public void saveUserCircle(user_circle theUserCircle) {
 		
 		UserCircleDAO.saveUserCircle(theUserCircle);
+	}
+
+	@Override
+	@Transactional
+	public circle getCircle(int circleId) {
+		// TODO Auto-generated method stub
+		return UserCircleDAO.getCircle(circleId);
 	}
 
 }

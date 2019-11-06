@@ -61,5 +61,17 @@ Session currentSession = sessionFactory.getCurrentSession();
 		// save/upate the customer ... finally LOL
 		currentSession.saveOrUpdate(theUserCircle);
 	}
+	
+	
+	@Override
+	public circle getCircle(int circleId) {
+		// get the current hibernate session
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		// now retrieve/read from database using the primary key
+		circle thecircle= currentSession.get(circle.class, circleId);
+		
+		return thecircle;
+	}
 
 }

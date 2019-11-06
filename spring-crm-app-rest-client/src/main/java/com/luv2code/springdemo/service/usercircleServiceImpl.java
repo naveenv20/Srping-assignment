@@ -100,4 +100,21 @@ logger.info("in saveUserCircle(): Calling REST API " + crmRestUrl);
 		
 	}
 
+
+
+	@Override
+	public circle getcircle(int circleId) {
+
+		logger.info("in getcircle(): Calling REST API " + crmRestUrl);
+
+		// make REST call
+		circle theCircle = 
+				restTemplate.getForObject("http://localhost:8080/spring-crm-rest/api/usercircles/"+ circleId, 
+						circle.class);
+
+		logger.info("in getcircle(): thecircle=" + theCircle);
+		
+		return theCircle;
+	}
+
 }
