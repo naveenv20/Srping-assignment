@@ -25,6 +25,7 @@
 
 	<div id="container">
 		<h3>Save Circle</h3>
+		
 	
 		<form:form action="saveUserCircle" modelAttribute="usercircle" method="POST">
 
@@ -48,14 +49,12 @@
 						<td><form:input path="subscribe" /></td>
 					</tr>
 
-					
-					
 					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save" /></td>
 					</tr>
 
-				
+
 				</tbody>
 			</table>
 		
@@ -65,7 +64,7 @@
 		<div style="clear; both;"></div>
 		
 		<p>
-			<a href="${pageContext.request.contextPath}/circle/list">Back to Circle List</a>
+			<a href="${pageContext.request.contextPath}/usercircle/listcircleusers?circleId=3">Back to CircleUser List</a>
 		</p>
 	
 	</div>
