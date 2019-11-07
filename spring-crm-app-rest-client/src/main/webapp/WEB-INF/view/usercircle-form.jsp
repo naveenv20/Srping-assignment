@@ -1,5 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -64,7 +64,11 @@
 		<div style="clear; both;"></div>
 		
 		<p>
-			<a href="${pageContext.request.contextPath}/usercircle/listcircleusers?circleId=3">Back to CircleUser List</a>
+			<!--  a href="${pageContext.request.contextPath}/usercircle/listcircleusers?circleId=">Back to CircleUser List</a-->
+			<c:url var="CircleUserlist" value="/usercircle/listcircleusers">
+						<c:param name="circleId" value="${param['circleId']}" />
+					</c:url>
+<a href="${CircleUserlist}">Back to CircleUser List</a>
 		</p>
 	
 	</div>

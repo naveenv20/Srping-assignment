@@ -29,10 +29,7 @@
 		
 			<!-- put new button: Add Customer -->
 		
-			<input type="button" value="Add User"
-				   onclick="window.location.href='showFormForAdd'; return false;"
-				   class="add-button"
-			/>
+			
 		
 		
 		
@@ -48,36 +45,55 @@
 					<th>UserID</th>
 					<th>Subscribed</th>
 					<th>Action</th>
+					
 				</tr>
 
 
 
 
 <c:forEach var="tempcircleUser" items="${usercirclelist}">
-				
 
-					<c:url var="AddUsersToCircleLink" value="/usercircles/showFormForAdd">
-						<c:param name="circleId" value="${tempcircleUser.theCircle.id}" />
-					</c:url>	
-							
+					<c:url var="DeleteUserAssociation"
+						value="/usercircle/delete">
+						<c:param name="circleuserId" value="${tempcircleUser.id}" />
+						<c:param name="circleId" value="${param['circleId']}" />
+					</c:url>
 
-						
-					
+
+
+
+
 					<tr>
 					<td>${tempcircleUser.theCircle.id}</td>
 					<td>${tempcircleUser.theCircle.circle_name}</td>
 					<td>${tempcircleUser.user_Info.userid}</td>
 					<td>${tempcircleUser.subscribe}</td>
+						<td><a href="${DeleteUserAssociation}"
+							onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+						</td>
 					</tr>
-				<a href="${AddUsersToCircleLink}">AddUsersToCircleLink</a>
+				
 				</c:forEach>
 
 
 
 			</table>
+			
+			
+			<c:url var="AddUsersToCircleLink" value="/usercircle/showFormForAdd">
+						<c:param name="circleId" value="${param['circleId']}" />
+					</c:url>
+<a href="${AddUsersToCircleLink}">AddUsersToCircleLink</a>
 
+<div style="clear; both;"></div>
+		
+		<p>
+			<a href="${pageContext.request.contextPath}/circle/list">Back to Circle List</a>
+		</p>
+	
 
-
+	
+	
 		</div>
 	
 	</div>

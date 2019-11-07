@@ -44,4 +44,11 @@ public class usercircleServiceImpl implements usercircleService {
 		return UserCircleDAO.getCircle(circleId);
 	}
 
+	@Override
+	@Transactional
+	public void deleteCircle(int usercircleId) {
+		UserCircleDAO.deleteCircle(usercircleId);
+		
+	}
+
 }

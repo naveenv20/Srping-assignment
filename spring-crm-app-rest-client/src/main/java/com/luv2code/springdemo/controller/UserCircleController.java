@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,7 +27,7 @@ import com.luv2code.springdemo.service.usercircleService;
 
 @Controller
 
-@RequestMapping("/usercircles")
+@RequestMapping("/usercircle")
 
 
 public class UserCircleController {
@@ -71,7 +72,7 @@ public class UserCircleController {
 	
 	@PostMapping("/saveUserCircle")
 	
-	public String addUserCircle(@RequestBody user_circle theUserCircle){
+	public String addUserCircle(@ModelAttribute("usercircle") user_circle theUserCircle){
 		
 		
 		//also just in the case the pass the id in JSON ...set id to 0
@@ -85,20 +86,30 @@ public class UserCircleController {
 	
 	
 	@GetMapping("/showFormForAdd")
-	public String showFormForAdd(@RequestParam("userId") int theId,Model theModel) {
+	public String showFormForAdd(@RequestParam("circleId") int theId,Model theModel) {
 		
 		// create model attribute to bind form data
 		user_circle theUserCircle = new user_circle();
-		circle theCircle = usercircleservice.getCircle(theId);
+		circle theCircle = usercircleservice.getcircle(theId);
 	
-		theModel.addAttribute("usercircle", theUserCircle);
+	
 		
 		circle thecircle=usercircleservice.getcircle(theId);
 		theUserCircle.setTheCircle(thecircle);
+		theModel.addAttribute("usercircle", theUserCircle);
 		
 		return "usercircle-form";
 	}
+
 	
+	@DeleteMapping("/delete")
+	public String deleteCircleUser(@RequestParam("circleuserId") int theId,@RequestParam("circleId") int ctheId) {
+		
+		// delete the customer
+		usercircleservice.deleteCircleuser(theId);
+		
+		return "redirect:/usercircle/listcircleusers";
+	}
 	
 	
 }

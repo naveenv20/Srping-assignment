@@ -70,7 +70,7 @@ public class UserCircleRestController {
 	
 	
 	@RequestMapping("/usercircles/{circleId}")
-	public circle getcustomer(@PathVariable int circleId ){
+	public circle getcircle(@PathVariable int circleId ){
 			
 		circle thecircle=UsercircleService.getCircle(circleId);
 		
@@ -80,6 +80,17 @@ public class UserCircleRestController {
 		
 	}
 	
+	
+	@DeleteMapping("/usercircles/delete/{usercircleId}")
+	public String deleteuser(@PathVariable int usercircleId) {
+
+		
+		UsercircleService.deleteCircle(usercircleId);
+		
+		
+		return "Delete Customer id :  "+usercircleId;
+		
+	}
 	
 	
 }

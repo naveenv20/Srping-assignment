@@ -77,7 +77,7 @@
 							|
 							<a href="${deleteLink}"
 							   onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
-							   
+							|   
 							<a href="${GetUsers}">GetUsers</a>
 						</td>
 						

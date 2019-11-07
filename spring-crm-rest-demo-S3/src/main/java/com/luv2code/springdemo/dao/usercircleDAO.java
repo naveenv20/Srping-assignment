@@ -18,4 +18,6 @@ public interface usercircleDAO {
 
 	public circle getCircle(int circleId);
 	
+	public void deleteCircle(int usercircleId);
+	
 }

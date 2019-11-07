@@ -74,4 +74,16 @@ Session currentSession = sessionFactory.getCurrentSession();
 		return thecircle;
 	}
 
+	@Override
+	public void deleteCircle(int usercircleId) {
+
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query theQuery = 
+				currentSession.createQuery("delete from user_circle where id=:usercircleId");
+		theQuery.setParameter("usercircleId", usercircleId);
+		
+		theQuery.executeUpdate();
+		
+	}
+
 }

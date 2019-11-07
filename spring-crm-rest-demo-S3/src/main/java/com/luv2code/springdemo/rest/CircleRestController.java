@@ -108,7 +108,7 @@ public class CircleRestController {
 	
 	// add mapping for DELETE /customers for deleting the customer
 	
-	@DeleteMapping("/theCircle/{circleId}")
+	@DeleteMapping("/circles/{circleId}")
 	public String deleteuser(@PathVariable int circleId) {
 
 		circle thecircle = circleservice.getCircle(circleId);
