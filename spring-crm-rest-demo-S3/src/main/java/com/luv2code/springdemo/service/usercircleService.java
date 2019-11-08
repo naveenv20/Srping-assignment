@@ -16,6 +16,8 @@ public interface usercircleService {
 	public circle getCircle(int circleId);
 
 	public void deleteCircle(int usercircleId);
+
+	public user_circle getcircleuser(int usercircleId);
 	
 
 }

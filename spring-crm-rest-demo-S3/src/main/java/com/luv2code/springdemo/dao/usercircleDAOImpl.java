@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.luv2code.springdemo.entity.circle;
 import com.luv2code.springdemo.entity.user_circle;
+import com.luv2code.springdemo.entity.user_info;
 
 @Repository
 public class usercircleDAOImpl implements usercircleDAO {
@@ -40,7 +41,7 @@ public class usercircleDAOImpl implements usercircleDAO {
 	@Override
 	public List<user_circle> getusercircledata2(int userId) {
 	Session currentSession = sessionFactory.getCurrentSession();
-		
+		System.out.println("^^^^^^^^^^^^^^^^^^^");
 		// delete object with primary key
 		Query theQuery = 
 				currentSession.createQuery("from user_circle where user_id=:userId");
@@ -56,6 +57,7 @@ public class usercircleDAOImpl implements usercircleDAO {
 
 	@Override
 	public void saveUserCircle(user_circle theUserCircle) {
+		System.out.println("@@@@@@@");
 Session currentSession = sessionFactory.getCurrentSession();
 		
 		// save/upate the customer ... finally LOL
@@ -84,6 +86,17 @@ Session currentSession = sessionFactory.getCurrentSession();
 		
 		theQuery.executeUpdate();
 		
+	}
+
+	@Override
+	public user_circle getcircleuser(int usercircleId) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		
+		// now retrieve/read from database using the primary key
+		user_circle thecircleuser= currentSession.get(user_circle.class, usercircleId);
+		
+		return thecircleuser;
+	
 	}
 
 }

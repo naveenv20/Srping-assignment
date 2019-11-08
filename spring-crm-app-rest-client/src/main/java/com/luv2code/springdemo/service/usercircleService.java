@@ -20,6 +20,8 @@ public interface usercircleService {
 
 	public void deleteCircleuser(int theId);
 
+	public user_circle getcircleUser(int theId);
+
 	
 
 }

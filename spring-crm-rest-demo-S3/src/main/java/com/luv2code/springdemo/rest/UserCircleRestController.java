@@ -56,7 +56,7 @@ public class UserCircleRestController {
 	
 	@PostMapping("/usercircles")
 	@Transactional
-	public user_circle addUser(@RequestBody user_circle theUserCircle){
+	public user_circle addCircleUser(@RequestBody user_circle theUserCircle){
 		
 		
 		//also just in the case the pass the id in JSON ...set id to 0
@@ -67,6 +67,21 @@ public class UserCircleRestController {
 		return theUserCircle;
 		
 	}
+	
+	
+	@PutMapping("/usercircles")
+	public user_circle updateCircleUser(@RequestBody user_circle theUserCircle){
+		
+		
+		//also just in the case the pass the id in JSON ...set id to the value u want delete
+		//
+		UsercircleService.saveUserCircle(theUserCircle);
+		
+		
+		return theUserCircle;
+		
+	}
+	
 	
 	
 	@RequestMapping("/usercircles/{circleId}")
@@ -84,11 +99,23 @@ public class UserCircleRestController {
 	@DeleteMapping("/usercircles/delete/{usercircleId}")
 	public String deleteuser(@PathVariable int usercircleId) {
 
-		
+		System.out.println("##################");
 		UsercircleService.deleteCircle(usercircleId);
 		
 		
 		return "Delete Customer id :  "+usercircleId;
+		
+	}
+	
+	
+	@RequestMapping("/usercircles/usercircle/{usercircleId}")
+	public user_circle getcircleuser(@PathVariable int usercircleId ){
+			
+		user_circle thecircleuser=UsercircleService.getcircleuser(usercircleId);
+		
+		
+		
+		return thecircleuser;
 		
 	}
 	

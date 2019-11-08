@@ -33,7 +33,7 @@ public class usercircleServiceImpl implements usercircleService {
 	@Override
 	@Transactional
 	public void saveUserCircle(user_circle theUserCircle) {
-		
+		System.out.println("@@@@@@@");
 		UserCircleDAO.saveUserCircle(theUserCircle);
 	}
 
@@ -47,8 +47,16 @@ public class usercircleServiceImpl implements usercircleService {
 	@Override
 	@Transactional
 	public void deleteCircle(int usercircleId) {
+	
 		UserCircleDAO.deleteCircle(usercircleId);
 		
+	}
+
+	@Override
+	@Transactional
+	public user_circle getcircleuser(int usercircleId) {
+		// TODO Auto-generated method stub
+		return UserCircleDAO.getcircleuser(usercircleId);
 	}
 
 }

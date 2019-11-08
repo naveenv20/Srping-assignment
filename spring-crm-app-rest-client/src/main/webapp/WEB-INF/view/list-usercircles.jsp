@@ -58,6 +58,13 @@
 						<c:param name="circleuserId" value="${tempcircleUser.id}" />
 						<c:param name="circleId" value="${param['circleId']}" />
 					</c:url>
+					
+					<c:url var="UpdateUserAssociation"
+						value="/usercircle/showFormForUpdate">
+						<c:param name="circleuserId" value="${tempcircleUser.id}" />
+						<c:param name="circleId" value="${param['circleId']}" />
+					
+					</c:url>
 
 
 
@@ -68,8 +75,11 @@
 					<td>${tempcircleUser.theCircle.circle_name}</td>
 					<td>${tempcircleUser.user_Info.userid}</td>
 					<td>${tempcircleUser.subscribe}</td>
-						<td><a href="${DeleteUserAssociation}"
+						<td>
+						<a href="${DeleteUserAssociation}"
 							onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+						|
+						<a href="${UpdateUserAssociation}">Update</a>	
 						</td>
 					</tr>
 				

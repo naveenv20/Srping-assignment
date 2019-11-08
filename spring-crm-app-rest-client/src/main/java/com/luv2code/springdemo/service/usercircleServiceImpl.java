@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.luv2code.springdemo.model.circle;
 import com.luv2code.springdemo.model.user_circle;
+import com.luv2code.springdemo.model.user_info;
 
 
 
@@ -85,6 +86,7 @@ public class usercircleServiceImpl implements usercircleService {
 logger.info("in saveUserCircle(): Calling REST API " + crmRestUrl);
 		
 		int theUserCircleId = theUserCircle.getId();
+		logger.info("in saveUserCircle() and theUserCircleId:"+theUserCircleId);	
 
 		// make REST call
 		if (theUserCircleId == 0) {
@@ -93,6 +95,7 @@ logger.info("in saveUserCircle(): Calling REST API " + crmRestUrl);
 		
 		} else {
 			// update employee
+			logger.info("in saveUserCircle() Calling with PUT");
 			restTemplate.put(crmRestUrl, theUserCircle);
 		}
 
@@ -126,12 +129,31 @@ logger.info("in saveUserCircle(): Calling REST API " + crmRestUrl);
 		logger.info("in deleteCircleuser(): Calling REST API " + crmRestUrl);
 
 		
-		restTemplate.delete("http://localhost:8080/spring-crm-rest/api/usercircles/delete" + "/" + theId);
+		restTemplate.delete("http://localhost:8080/spring-crm-rest/api/usercircles/delete/"+ theId);
 
 		logger.info("in deleteCircleuser(): deleted circleuser theId=" + theId);
 		
 		
 		
+		
+	}
+
+
+
+	@Override
+	public user_circle getcircleUser(int theId) {
+		
+		
+		logger.info("in getcircleUser(): Calling REST API " + crmRestUrl);
+
+		// make REST call
+		user_circle thecircleUser = 
+				restTemplate.getForObject("http://localhost:8080/spring-crm-rest/api/usercircles/usercircle/"+ theId, 
+						user_circle.class);
+
+		logger.info("in getcircleUser(): thecircleuser=" + thecircleUser);
+		
+		return thecircleUser;
 		
 	}
 

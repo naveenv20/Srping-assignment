@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.luv2code.springdemo.model.circle;
 import com.luv2code.springdemo.model.user_circle;
+import com.luv2code.springdemo.model.user_info;
 import com.luv2code.springdemo.service.circleService;
 import com.luv2code.springdemo.service.usercircleService;
 
@@ -71,8 +72,7 @@ public class UserCircleController {
 	
 	
 	@PostMapping("/saveUserCircle")
-	
-	public String addUserCircle(@ModelAttribute("usercircle") user_circle theUserCircle){
+	public String saveUserCircle(@ModelAttribute("usercircle") user_circle theUserCircle){
 		
 		
 		//also just in the case the pass the id in JSON ...set id to 0
@@ -102,14 +102,32 @@ public class UserCircleController {
 	}
 
 	
-	@DeleteMapping("/delete")
-	public String deleteCircleUser(@RequestParam("circleuserId") int theId) {
+	@GetMapping("/delete")
+	public String deleteCircleUser(@RequestParam("circleuserId") int theId,@RequestParam("circleId") int ctheId) {
 		
+		System.out.println("inside  deleteCircleUser");
 		// delete the customer
 		usercircleservice.deleteCircleuser(theId);
 		
-		return "redirect:/circle/list";
+		return "redirect:/usercircle/listcircleusers?circleId="+ctheId;
 	}
+	
+	
+	
+	@GetMapping("/showFormForUpdate")
+	public String showFormForUpdate(@RequestParam("circleuserId") int theId,
+									Model theModel) {
+		
+		// get the customer from our service
+		user_circle thecircleUser = usercircleservice.getcircleUser(theId);	
+		
+		// set customer as a model attribute to pre-populate the form
+		theModel.addAttribute("usercircle", thecircleUser);
+		
+		// send over to our form		
+		return "usercircle-form";
+	}
+	
 	
 	
 }
