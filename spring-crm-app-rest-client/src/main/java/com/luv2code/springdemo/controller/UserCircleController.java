@@ -103,12 +103,12 @@ public class UserCircleController {
 
 	
 	@DeleteMapping("/delete")
-	public String deleteCircleUser(@RequestParam("circleuserId") int theId,@RequestParam("circleId") int ctheId) {
+	public String deleteCircleUser(@RequestParam("circleuserId") int theId) {
 		
 		// delete the customer
 		usercircleservice.deleteCircleuser(theId);
 		
-		return "redirect:/usercircle/listcircleusers";
+		return "redirect:/circle/list";
 	}
 	
 	
