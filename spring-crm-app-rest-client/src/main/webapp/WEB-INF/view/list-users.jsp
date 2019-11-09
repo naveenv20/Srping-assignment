@@ -59,7 +59,7 @@
 					</c:url>
 
 					<c:url var="GetCircles" value="/usercircle/listusercircles">
-						<c:param name="userId" value="${tempUser.id}" />
+						<c:param name="theId" value="${tempUser.id}" />
 					</c:url>
 
 					<tr>

@@ -19,7 +19,7 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>Circle Manager</h2>
+			<h2>User Circle Manager</h2>
 		</div>
 	</div>
 	
@@ -56,13 +56,13 @@
 					<c:url var="DeleteUserAssociation"
 						value="/usercircle/delete">
 						<c:param name="circleuserId" value="${tempcircleUser.id}" />
-						<c:param name="circleId" value="${param['theId']}" />
+						<c:param name="theId" value="${param['theId']}" />
 					</c:url>
 					
 					<c:url var="UpdateUserAssociation"
 						value="/usercircle/showFormForUpdate">
 						<c:param name="circleuserId" value="${tempcircleUser.id}" />
-						<c:param name="circleId" value="${param['theId']}" />
+						<c:param name="theId" value="${param['theId']}" />
 					
 					</c:url>
 
@@ -91,7 +91,7 @@
 			
 			
 			<c:url var="AddUsersToCircleLink" value="/usercircle/showFormForAdd">
-						<c:param name="circleId" value="${param['theId']}" />
+						<c:param name="theId" value="${param['theId']}" />
 					</c:url>
 <a href="${AddUsersToCircleLink}">AddUsersToCircleLink</a>
 
@@ -99,6 +99,11 @@
 		
 		<p>
 			<a href="${pageContext.request.contextPath}/circle/list">Back to Circle List</a>
+		</p>
+	
+	
+	<p>
+			<a href="${pageContext.request.contextPath}/user/list">Back to User List</a>
 		</p>
 	
 

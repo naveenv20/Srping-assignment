@@ -44,7 +44,7 @@ public class UserCircleController {
 	}
 	
 	@GetMapping("/listcircleusers")
-	public String listcircleuserss(@RequestParam("circleId") int theId,Model theModel) {
+	public String listcircleuserss(@RequestParam("theId") int theId,Model theModel) {
 		
 		// get customers from the service
 		List<user_circle> theCircleusers = usercircleservice.getcircleuserdata(theId);
@@ -57,7 +57,7 @@ public class UserCircleController {
 	}
 	
 	@GetMapping("/listusercircles")
-	public String listusercircles(@RequestParam("userId") int theId,Model theModel) {
+	public String listusercircles(@RequestParam("theId") int theId,Model theModel) {
 		
 		// get customers from the service
 		List<user_circle> theusercircless = usercircleservice.getusercircledata(theId);
@@ -87,7 +87,7 @@ public class UserCircleController {
 	
 	
 	@GetMapping("/showFormForAdd")
-	public String showFormForAdd(@RequestParam("circleId") int theId,Model theModel) {
+	public String showFormForAdd(@RequestParam("theId") int theId,Model theModel) {
 		
 		// create model attribute to bind form data
 		user_circle theUserCircle = new user_circle();
