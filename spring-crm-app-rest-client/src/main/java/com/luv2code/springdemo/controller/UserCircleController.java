@@ -52,7 +52,7 @@ public class UserCircleController {
 		// add the customers to the model
 		theModel.addAttribute("usercirclelist", theCircleusers);
 		System.out.println("##############"+theId);
-		theModel.addAttribute("circleId", theId);
+		theModel.addAttribute("theId", theId);
 		return "list-usercircles";
 	}
 	
@@ -64,7 +64,8 @@ public class UserCircleController {
 				
 		// add the customers to the model
 		theModel.addAttribute("usercirclelist", theusercircless);
-		
+		System.out.println("##############"+theId);
+		theModel.addAttribute("theId", theId);
 		
 		return "list-usercircles";
 	}

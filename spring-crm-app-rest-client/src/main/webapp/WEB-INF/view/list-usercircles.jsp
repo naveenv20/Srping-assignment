@@ -56,13 +56,13 @@
 					<c:url var="DeleteUserAssociation"
 						value="/usercircle/delete">
 						<c:param name="circleuserId" value="${tempcircleUser.id}" />
-						<c:param name="circleId" value="${param['circleId']}" />
+						<c:param name="circleId" value="${param['theId']}" />
 					</c:url>
 					
 					<c:url var="UpdateUserAssociation"
 						value="/usercircle/showFormForUpdate">
 						<c:param name="circleuserId" value="${tempcircleUser.id}" />
-						<c:param name="circleId" value="${param['circleId']}" />
+						<c:param name="circleId" value="${param['theId']}" />
 					
 					</c:url>
 
@@ -91,7 +91,7 @@
 			
 			
 			<c:url var="AddUsersToCircleLink" value="/usercircle/showFormForAdd">
-						<c:param name="circleId" value="${param['circleId']}" />
+						<c:param name="circleId" value="${param['theId']}" />
 					</c:url>
 <a href="${AddUsersToCircleLink}">AddUsersToCircleLink</a>
 

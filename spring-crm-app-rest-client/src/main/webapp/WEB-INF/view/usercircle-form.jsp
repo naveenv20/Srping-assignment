@@ -66,7 +66,7 @@
 		<p>
 			<!--  a href="${pageContext.request.contextPath}/usercircle/listcircleusers?circleId=">Back to CircleUser List</a-->
 			<c:url var="CircleUserlist" value="/usercircle/listcircleusers">
-						<c:param name="circleId" value="${param['circleId']}" />
+						<c:param name="circleId" value="${param['theId']}" />
 					</c:url>
 <a href="${CircleUserlist}">Back to CircleUser List</a>
 		</p>

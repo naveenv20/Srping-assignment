@@ -56,8 +56,12 @@
 					<!-- construct an "delete" link with customer id -->
 					<c:url var="deleteLink" value="/user/delete">
 						<c:param name="userId" value="${tempUser.id}" />
-					</c:url>					
-					
+					</c:url>
+
+					<c:url var="GetCircles" value="/usercircle/listusercircles">
+						<c:param name="userId" value="${tempUser.id}" />
+					</c:url>
+
 					<tr>
 						<td> ${tempUser.firstname} </td>
 						<td> ${tempUser.lastname} </td>
@@ -70,6 +74,9 @@
 							|
 							<a href="${deleteLink}"
 							   onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
+							|
+							<a href="${GetCircles}">GetCircles</a>
+							
 						</td>
 						
 					</tr>

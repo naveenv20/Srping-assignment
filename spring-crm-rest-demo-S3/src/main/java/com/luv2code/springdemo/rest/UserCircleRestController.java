@@ -35,7 +35,7 @@ public class UserCircleRestController {
 	
 	@RequestMapping("/usercircles/circle/{circleId}")
 	
-	public List<user_circle> getcustomers(Model theModel,@PathVariable int circleId){
+	public List<user_circle> getcirclesusers(Model theModel,@PathVariable int circleId){
 		
 		return UsercircleService.getusercircledata(circleId);
 		
@@ -44,7 +44,7 @@ public class UserCircleRestController {
 
 	@RequestMapping("/usercircles/user/{userId}")
 	
-	public List<user_circle> getcirclesforuser(Model theModel,@PathVariable int userId){
+	public List<user_circle> getusercircles(Model theModel,@PathVariable int userId){
 		
 		return UsercircleService.getusercircledata2(userId);
 		
