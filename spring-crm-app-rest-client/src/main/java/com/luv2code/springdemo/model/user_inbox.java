@@ -1,54 +1,35 @@
-package com.luv2code.springdemo.entity;
+package com.luv2code.springdemo.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
-@Entity
-@Table(name="user_inbox")
+ 
 public class user_inbox {
 	
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	 
 	private int id;
 	
-	@Column(name="message")
+	 
 	private String message;
-	
-//	@Column(name="receiver_id")	
+	 
 //	private int receiver_id;
 	
-	@Column(name="iscircle")	
+	 
 	private boolean iscircle;
 	
-	@Column(name="received_date_time")	
-	@Temporal(value= TemporalType.TIMESTAMP)
+	
 	private Date doj;
 	
-	@ManyToOne(cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH})
-	@JoinColumn(name="sender_id",insertable=false, updatable=false)
+	
 	private user_info sender_Info;
 	
 	
-	@ManyToOne(cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH})
-	@JoinColumn(name="receiver_id",insertable=false, updatable=false)
+	
 	private user_info receiver_Info;
 	
 	
@@ -76,7 +57,7 @@ public class user_inbox {
 		this.message = message;
 	}
 
-//
+
 //	public int getReceiver_id() {
 //		return receiver_id;
 //	}
@@ -106,7 +87,7 @@ public class user_inbox {
 		this.doj = doj;
 	}
 
-
+	
 	public user_info getSender_Info() {
 		return sender_Info;
 	}

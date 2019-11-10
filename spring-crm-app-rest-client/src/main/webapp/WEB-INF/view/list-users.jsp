@@ -62,6 +62,10 @@
 						<c:param name="theId" value="${tempUser.id}" />
 					</c:url>
 
+
+					<c:url var="GetMesages" value="/userinbox/listusermessages">
+						<c:param name="theId" value="${tempUser.id}" />
+					</c:url>
 					<tr>
 						<td> ${tempUser.firstname} </td>
 						<td> ${tempUser.lastname} </td>
@@ -76,6 +80,8 @@
 							   onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Delete</a>
 							|
 							<a href="${GetCircles}">GetCircles</a>
+							|
+							<a href="${GetMesages}">GetMessages</a>
 							
 						</td>
 						
