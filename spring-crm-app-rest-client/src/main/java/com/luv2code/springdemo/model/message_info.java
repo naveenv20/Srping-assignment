@@ -1,49 +1,31 @@
-package com.luv2code.springdemo.entity;
+package com.luv2code.springdemo.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
-@Entity
-@Table(name="message_info")
+
 public class message_info {
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id")
+	
 	private int id;
 	
-	@Column(name="message")
+	
 	private String message;
 	
-	@Column(name="receiver_id")	
+	
 	private int receiver_id;
 	
-	@Column(name="iscircle")	
 	private boolean iscircle;
 	
-	@Column(name="received_date_time")	
-	@Temporal(value= TemporalType.TIMESTAMP)
+	
 	private Date doj;
 	
 	
-	@ManyToOne(fetch = FetchType.EAGER,cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH})
-	@JoinColumn(name="sender_id")
+	
 	private user_info user_Info;
 	
 
@@ -51,6 +33,8 @@ public class message_info {
 	public message_info() {
 		
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -90,6 +74,7 @@ public class message_info {
 	}
 
 
+
 	public boolean isIscircle() {
 		return iscircle;
 	}
@@ -113,7 +98,7 @@ public class message_info {
 	}
 
 
-
+	
 	public user_info getUser_Info() {
 		return user_Info;
 	}
@@ -125,7 +110,6 @@ public class message_info {
 	}
 
 
-	
 
 //	public message_info(String message, int receiver_id, boolean iscircle, Date doj) {
 //		
@@ -135,8 +119,7 @@ public class message_info {
 //		this.doj = doj;
 //	}
 //
-//
-//
+//	
 //	public message_info(int id, String message, int receiver_id, boolean iscircle, Date doj, user_info user_Info) {
 //		super();
 //		this.id = id;
@@ -146,6 +129,7 @@ public class message_info {
 //		this.doj = doj;
 //		this.user_Info = user_Info;
 //	}
+
 
 	@Override
 	public String toString() {
