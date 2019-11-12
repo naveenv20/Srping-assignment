@@ -90,7 +90,10 @@
 				</c:forEach>
 						
 			</table>
-				
+		<input type="button" value="Add Message"
+				   onclick="window.location.href='/crm-web-app-rest-client-demo/messageinfo/list'; return false;"
+				   class="add-button"
+			/>		
 		</div>
 	
 	</div>
