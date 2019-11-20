@@ -53,7 +53,7 @@
 					</c:url>					
 
 					<!-- construct an "delete" link with customer id -->
-					<c:url var="GetUsers" value="/usrcircle/listcircleusers">
+					<c:url var="GetUsers" value="/usercircle/listcircleusers">
 						<c:param name="theId" value="${tempUser.id}" />
 					</c:url>		
 					

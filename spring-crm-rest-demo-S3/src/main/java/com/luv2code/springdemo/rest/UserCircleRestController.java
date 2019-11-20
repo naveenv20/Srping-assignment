@@ -59,8 +59,7 @@ public class UserCircleRestController {
 	public user_circle addCircleUser(@RequestBody user_circle theUserCircle){
 		
 		
-		//also just in the case the pass the id in JSON ...set id to 0
-		//this is force a save of new item .. instead of doing update 
+		
 		UsercircleService.saveUserCircle(theUserCircle);
 		
 		
