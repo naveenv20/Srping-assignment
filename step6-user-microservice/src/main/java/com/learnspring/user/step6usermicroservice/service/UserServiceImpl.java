@@ -3,6 +3,7 @@ package com.learnspring.user.step6usermicroservice.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.learnspring.user.step6usermicroservice.dao.UserRepository;
@@ -13,7 +14,8 @@ public class UserServiceImpl implements UserService {
 	
 	private UserRepository userRepository;
 	
-	
+
+@Autowired
 	public UserServiceImpl (UserRepository theuserRepository){
 		userRepository=theuserRepository;
 	}
