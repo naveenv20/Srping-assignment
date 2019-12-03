@@ -74,13 +74,10 @@ public class CircleController {
 	@PostMapping("/circles")
 	public circle addCircle(@RequestBody circle theCircle){
 		
-		
 		//also just in the case the pass the id in JSON ...set id to 0
 		//this is force a save of new item .. instead of doing update 
 		circleService.save(theCircle);
-		
-		
-		return theCircle;
+			return theCircle;
 		
 	}
 	
