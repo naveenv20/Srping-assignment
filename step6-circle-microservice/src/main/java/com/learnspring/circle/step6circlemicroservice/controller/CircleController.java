@@ -18,6 +18,7 @@ import com.learnspring.circle.step6circlemicroservice.service.CircleService;
 
 
 
+
 @RestController
 @RequestMapping("/api")
 public class CircleController {
@@ -58,10 +59,12 @@ public class CircleController {
 	//add mapping get customer --with customer id
 	@RequestMapping("/circles/{circleId}")
 	public circle getcircle(@PathVariable int circleId ){
+		
+		
 			
 		circle thecircle=circleService.findById(circleId);
 		
-		
+		thecircle.setUser_info(userServiceProxy.retrieveUser(thecircle.getCreatedby()));
 		
 		return thecircle;
 		
