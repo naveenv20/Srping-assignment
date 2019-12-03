@@ -32,11 +32,6 @@ public class UserController {
 	 
 	@RequestMapping("/users")
 	public List<user_info> getcustomers(Model theModel){
-			
-		
-	
-		 
-	
 		
 		// get users from the service
 				List<user_info> theusers = userService.findAll();
