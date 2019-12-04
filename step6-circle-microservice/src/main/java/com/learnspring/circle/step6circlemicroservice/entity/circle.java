@@ -38,16 +38,19 @@ public class circle {
 	@Column(name="createdby")
 	private int createdby;
 	
-	private user_info user_info;
+	
+	@Column(name="userid")
+	private String userid;
 	
 	
-	
-	public user_info getUser_info() {
-		return user_info;
+
+
+	public String getUserid() {
+		return userid;
 	}
 
-	public void setUser_info(user_info user_info) {
-		this.user_info = user_info;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 	public circle(Date doj, String circle_name) {
@@ -98,7 +101,7 @@ public class circle {
 
 	@Override
 	public String toString() {
-		return "circle**** [id=" + id + ", doj=" + doj + ", circle_name=" + circle_name +"  user_info=   "+ user_info.getUserid() + "]";
+		return "circle**** [id=" + id + ", doj=" + doj + ", circle_name=" + circle_name +"]";
 	}
 	
 	//in microservices , how to implement the one to many mapping

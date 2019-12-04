@@ -16,14 +16,9 @@ import com.learnspring.circle.step6circlemicroservice.entity.user_info;
 @RibbonClient(name="user-service")
 public interface UserServiceProxy {
 	
-@GetMapping("/api/users")
-	
-
-//public user_info retrieveUser
-//	(@PathVariable("userId") int userId) ;
-
-	public List<user_info> retrieveUser
-	() ;
+@GetMapping("/users/{userId}")
+	public user_info retrieveUser
+	(@PathVariable("userId") int userId) ;
 
 
 

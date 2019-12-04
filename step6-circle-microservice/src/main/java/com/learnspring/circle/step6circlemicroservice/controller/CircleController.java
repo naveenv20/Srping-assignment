@@ -56,7 +56,7 @@ public class CircleController {
 		
 	}
 	
-	//add mapping get customer --with customer id
+	//add mapping get customer --with customer id7n 
 	@RequestMapping("/circles/{circleId}")
 	public circle getcircle(@PathVariable int circleId ){
 		
@@ -64,7 +64,7 @@ public class CircleController {
 			
 		circle thecircle=circleService.findById(circleId);
 		
-		thecircle.setUser_info(userServiceProxy.retrieveUser(thecircle.getCreatedby()));
+	
 		
 		return thecircle;
 		
