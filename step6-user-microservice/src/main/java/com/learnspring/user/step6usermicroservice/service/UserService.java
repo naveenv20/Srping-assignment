@@ -13,6 +13,8 @@ public List<user_info> findAll();
 	
 	public user_info findById(int theId);
 	
+	public user_info findByUserid(String userName);
+	
 	public void save(user_info theuser);
 	
 	

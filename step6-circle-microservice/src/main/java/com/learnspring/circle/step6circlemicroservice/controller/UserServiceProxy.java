@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.learnspring.circle.step6circlemicroservice.entity.circle;
+
 import com.learnspring.circle.step6circlemicroservice.entity.user_info;
 
 
@@ -16,9 +16,14 @@ import com.learnspring.circle.step6circlemicroservice.entity.user_info;
 @RibbonClient(name="user-service")
 public interface UserServiceProxy {
 	
-@GetMapping("/users/{userId}")
+@GetMapping("/api/users/{userId}")
 	public user_info retrieveUser
 	(@PathVariable("userId") int userId) ;
+
+
+@GetMapping("/api/users/u/{userName}")
+public user_info retrieveUsera
+(@PathVariable("userName") String userName) ;
 
 
 

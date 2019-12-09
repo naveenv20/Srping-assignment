@@ -3,6 +3,7 @@ package com.learnspring.circle.step6circlemicroservice.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.learnspring.circle.step6circlemicroservice.entity.circle;
 import com.learnspring.circle.step6circlemicroservice.entity.circlebean;
+import com.learnspring.circle.step6circlemicroservice.entity.user_info;
 import com.learnspring.circle.step6circlemicroservice.service.CircleService;
+
+
 
 
 
@@ -41,18 +45,24 @@ public class CircleController {
 	public List<circle> getcircles(Model theModel){
 			
 		
-	
-		 
-	
-		
 		// get users from the service
 				List<circle> thecircles = circleService.findAll();
 				
-				List<circlebean> thecirclesbeans= new ArrayList<>();
 				
-				for (circle e: thecircles){
-					thecirclesbeans.add(e);
-				}
+				
+				
+				
+				
+				
+//				 return userRating.getRatings().stream()
+//			                .map(rating -> {
+//			                    Movie movie = restTemplate.getForObject("http://movie-info-service/movies/" + rating.getMovieId(), Movie.class);
+//			                    return new CatalogItem(movie.getName(), movie.getDescription(), rating.getRating());
+//			                })
+//			                .collect(Collectors.toList());
+				
+				
+				
 				
 				// add the customers to the model
 				theModel.addAttribute("circlelist", thecircles);
@@ -63,6 +73,47 @@ public class CircleController {
 		return thecircles;
 		
 	}
+	
+	@RequestMapping("/circlebeans")
+	public List<circlebean> getcirclebeanss(Model theModel){
+			
+		
+		// get users from the service
+				List<circle> thecircles = circleService.findAll();
+				
+				List<circlebean> thecirclesbeans= new ArrayList<>();
+				
+				for (circle c:thecircles) {
+					
+				user_info uf=	userServiceProxy.retrieveUsera(c.getUserid());
+					
+					
+					circlebean cb= new circlebean(c,uf);
+					thecirclesbeans.add(cb);
+				}
+				
+				
+				
+//				 return userRating.getRatings().stream()
+//			                .map(rating -> {
+//			                    Movie movie = restTemplate.getForObject("http://movie-info-service/movies/" + rating.getMovieId(), Movie.class);
+//			                    return new CatalogItem(movie.getName(), movie.getDescription(), rating.getRating());
+//			                })
+//			                .collect(Collectors.toList());
+				
+				
+				
+				
+				// add the customers to the model
+				theModel.addAttribute("circlelist", thecirclesbeans);
+				
+				//return "list-users";
+		
+		
+		return thecirclesbeans;
+		
+	}
+	
 	
 	//add mapping get customer --with customer id7n 
 	@RequestMapping("/circles/{circleId}")

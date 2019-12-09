@@ -55,4 +55,21 @@ public class UserServiceImpl implements UserService {
 
 	}
 
+
+
+	@Override
+	public user_info findByUserid(String userName) {
+		Optional<user_info> result=userRepository.findByUserid(userName);
+		user_info theuser_info=null;
+		if(result.isPresent()){
+			theuser_info=result.get();
+		}
+		
+		else {
+			throw new RuntimeException("Not found the User with id : "+userName);
+		}
+		return theuser_info ;
+		
+	}
+
 }

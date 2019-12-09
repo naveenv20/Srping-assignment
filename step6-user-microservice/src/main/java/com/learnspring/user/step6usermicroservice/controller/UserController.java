@@ -59,6 +59,16 @@ public class UserController {
 	}
 	
 	
+	//add mapping get customer --with customer id
+		@RequestMapping("/users/u/{userName}")
+		public user_info getcustomer(@PathVariable("userName") String userName){
+				
+			user_info theuser=userService.findByUserid(userName);
+			
+			return theuser;
+			
+		}
+	
 	
 	//add mapping for POST /customers     adding a new customer
 	
@@ -95,7 +105,7 @@ public class UserController {
 	// add mapping for DELETE /customers for deleting the customer
 	
 	@DeleteMapping("/users/{userId}")
-	public String deleteuser(@PathVariable int userId) {
+	public String deleteuser(@PathVariable("userId") int userId) {
 
 		user_info theuser = userService.findById(userId);
 		
