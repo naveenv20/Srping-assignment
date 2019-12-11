@@ -17,4 +17,6 @@ public List<circle> findAll();
 	
 	public void deleteById(int theId);
 
+	public circle findByName(String circleName);
+
 }

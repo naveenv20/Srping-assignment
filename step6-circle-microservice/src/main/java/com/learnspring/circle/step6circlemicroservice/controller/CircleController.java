@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -116,21 +117,53 @@ public class CircleController {
 	
 	
 	//add mapping get customer --with customer id7n 
-	@RequestMapping("/circles/{circleId}")
-	public circle getcircle(@PathVariable int circleId ){
+	@RequestMapping("/circlebeans/{circleId}")
+	public circlebean getcirclebean(@PathVariable int circleId ){
 		
 		
 			
 		circle thecircle=circleService.findById(circleId);
-		
+		user_info uf=	userServiceProxy.retrieveUsera(thecircle.getUserid());
+		circlebean thecirclebean= new circlebean(thecircle, uf);
 	
 		
-		return thecircle;
+		return thecirclebean;
 		
 	}
 	
 	
+	//add mapping get customer --with customer id7n 
+		@RequestMapping("/circles/{circleId}")
+		public circle getcircle(@PathVariable int circleId ){
+			
+			
+				
+			circle thecircle=circleService.findById(circleId);
+			
+		
+			
+			return thecircle;
+			
+		}
 	
+	
+		
+		
+		
+		@GetMapping("/circles/u/{circleName}")
+		
+		public circle getcircle(@PathVariable String circleName ){
+			
+			
+				
+			circle thecircle=circleService.findByName(circleName);
+			
+		
+			
+			return thecircle;
+		}
+		
+		
 	//add mapping for POST /customers     adding a new customer
 	
 	@PostMapping("/circles")
