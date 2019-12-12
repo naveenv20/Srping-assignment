@@ -14,7 +14,7 @@ import com.luv2code.springdemo.entity.user_info;
 
 
 @Repository
-public class messageinfoDAOImpl implements messageinfoDAO{
+public class messageinfoDAOImpl implements MessageInfoRepository{
 	
 
 	@Autowired

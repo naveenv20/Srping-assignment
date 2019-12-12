@@ -66,8 +66,25 @@ public class UserCircleController {
 			theusercirclebeans.add(ub);
 		}
 		
+		return theusercirclebeans;
+	}
+		
+		@RequestMapping("/usercirclebeanss/{usercircleId}")
+		
+		public usercirclebean getusercirclebeanss(Model theModel, @PathVariable int usercircleId ){
+			
+			
+			user_circle theuser_circle=userCircleService.findById(usercircleId);
+			
+			
+				circle c=circleServiceProxy.retrieveCircle(theuser_circle.getTheCircle());
+				user_info u=userServiceProxy.retrieveUser(theuser_circle.getUser_Info());
+				usercirclebean theusercirclebean=new usercirclebean(u, c, theuser_circle);
+				
+			
+		
 		 
-	return	theusercirclebeans;
+	return	theusercirclebean;
 	}
 	
 	

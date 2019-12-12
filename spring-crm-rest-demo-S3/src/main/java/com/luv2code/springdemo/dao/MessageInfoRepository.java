@@ -7,7 +7,7 @@ import com.luv2code.springdemo.entity.message_info;
 import com.luv2code.springdemo.entity.user_info;
 
 
-public interface messageinfoDAO {
+public interface MessageInfoRepository {
 
 	public List<message_info> getmessagedata();
 	

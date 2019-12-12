@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.luv2code.springdemo.dao.messageinfoDAO;
+import com.luv2code.springdemo.dao.MessageInfoRepository;
 import com.luv2code.springdemo.entity.circle;
 import com.luv2code.springdemo.entity.message_info;
 import com.luv2code.springdemo.entity.user_info;
@@ -15,7 +15,7 @@ import com.luv2code.springdemo.entity.user_info;
 public class messageinboxServiceImpl implements messageinboxService {
 	
 	@Autowired
-	private messageinfoDAO messageInfoDAO;
+	private MessageInfoRepository messageInfoDAO;
 
 	@Override
 	@Transactional
