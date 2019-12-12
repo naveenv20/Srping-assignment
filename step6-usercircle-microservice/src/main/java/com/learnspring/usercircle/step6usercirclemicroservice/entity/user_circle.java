@@ -1,18 +1,21 @@
 package com.learnspring.usercircle.step6usercirclemicroservice.entity;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 
 @Entity
 @Table(name="user_circle")
 public class user_circle {
+	
+
+	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -20,22 +23,24 @@ public class user_circle {
 	private int id;
 
 	
-	public user_circle(){
-		
-	}
 	
 	
 	
-	@JoinColumn(name="user_id")
-	private int user_Info;
+	@Column(name="user_id")
+	private int userInfo;
 	
-	@JoinColumn(name="circle_id")
+	
+	@Column(name="circle_id")
 	private int theCircle;
 	
 	@Column(name="subscribe")
 	private boolean subscribe;
 	
 	
+	
+public user_circle(){
+		
+	}
 	public int getId() {
 		return id;
 	}
@@ -47,11 +52,11 @@ public class user_circle {
 	
 
 	public int getUser_Info() {
-		return user_Info;
+		return userInfo;
 	}
 
 	public void setUser_Info(int user_Info) {
-		this.user_Info = user_Info;
+		this.userInfo = user_Info;
 	}
 
 	public int getTheCircle() {
@@ -72,7 +77,7 @@ public class user_circle {
 
 	@Override
 	public String toString() {
-		return "user_circle [id=" + id + ", User_info=" + user_Info + ", Circle=" + theCircle + ", subscribe=" + subscribe
+		return "user_circle [id=" + id + ", User_info=" + userInfo + ", Circle=" + theCircle + ", subscribe=" + subscribe
 				+ "]";
 	}
 

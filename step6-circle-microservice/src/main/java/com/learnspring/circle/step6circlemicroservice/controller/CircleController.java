@@ -86,7 +86,7 @@ public class CircleController {
 				
 				for (circle c:thecircles) {
 					
-				user_info uf=	userServiceProxy.retrieveUsera(c.getUserid());
+				user_info uf=	userServiceProxy.retrieveUser(c.getCreatedby());
 					
 					
 					circlebean cb= new circlebean(c,uf);
@@ -123,7 +123,7 @@ public class CircleController {
 		
 			
 		circle thecircle=circleService.findById(circleId);
-		user_info uf=	userServiceProxy.retrieveUsera(thecircle.getUserid());
+		user_info uf=	userServiceProxy.retrieveUser(thecircle.getCreatedby());
 		circlebean thecirclebean= new circlebean(thecircle, uf);
 	
 		

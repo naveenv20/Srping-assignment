@@ -10,6 +10,7 @@ import com.learnspring.circle.step6circlemicroservice.entity.circle;
 
 public interface CircleRepository  extends JpaRepository<circle, Integer>{
 
-	Optional<circle> findByCirclename(String circleName);
+	Optional<circle> findByCirclename(String circle_Name);
+	
 
 }

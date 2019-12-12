@@ -21,9 +21,9 @@ public interface UserServiceProxy {
 	(@PathVariable("userId") int userId) ;
 
 
-@GetMapping("/api/users/u/{userName}")
+@GetMapping("/api/users/u/{createdBy}")
 public user_info retrieveUsera
-(@PathVariable("userName") String userName) ;
+(@PathVariable("createdBy") int createdBy) ;
 
 
 

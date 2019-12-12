@@ -59,15 +59,15 @@ private CircleRepository circleRepository;
 	}
 
 	@Override
-	public circle findByName(String circleName) {
-		Optional<circle> result=circleRepository.findByCirclename(circleName);
+	public circle findByName(String circle_Name) {
+		Optional<circle> result=circleRepository.findByCirclename(circle_Name);
 		circle thecircle=null;
 		if(result.isPresent()){
 			thecircle=result.get();
 		}
 		
 		else {
-			throw new RuntimeException("Not found the User with id : "+circleName);
+			throw new RuntimeException("Not found the User with id : "+circle_Name);
 		}
 		
 		

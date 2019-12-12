@@ -33,7 +33,7 @@ public class circle {
 	@Temporal(value= TemporalType.DATE)
 	private Date doj;
 	
-	@Column(name="circlename")
+	@Column(name="circle_name")
 	private String circlename;
 	
 	
@@ -41,19 +41,19 @@ public class circle {
 	private int createdby;
 	
 	
-	@Column(name="userid")
-	private String userid;
+//	@Column(name="userid")
+//	private String userid;
+//	
 	
-	
 
 
-	public String getUserid() {
-		return userid;
-	}
-
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
+//	public String getUserid() {
+//		return userid;
+//	}
+//
+//	public void setUserid(String userid) {
+//		this.userid = userid;
+//	}
 
 	public circle(Date doj, String circle_name) {
 		super();

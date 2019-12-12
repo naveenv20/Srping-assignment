@@ -9,7 +9,7 @@ public class user_info {
 	
 	
 
-	private int id;
+//	private int id;
 	
 
 	private String firstname;
@@ -28,13 +28,13 @@ public class user_info {
 
 	
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 	public String getFirstname() {
 		return firstname;
@@ -83,7 +83,7 @@ public class user_info {
 
 	@Override
 	public String toString() {
-		return "user_info [id=" + id + ", firstname=" + firstname + ", lastname=" + lastname + ", password=" + password
+		return "user_info [ firstname=" + firstname + ", lastname=" + lastname + ", password=" + password
 				+ ", userid=" + userid + "]";
 	}
 
